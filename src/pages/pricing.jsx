@@ -1,6 +1,6 @@
 import { FiCheckCircle, FiStar, FiZap, FiShield, FiHeadphones } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import './Pricing.css';
+import './pricing.css';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
