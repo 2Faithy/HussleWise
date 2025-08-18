@@ -15,7 +15,7 @@ import Pricing from './pages/pricing';
 import About from './pages/about-us';
 import Support from './pages/support';
 import Signup from './pages/signup';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Dashboard.jsx';
 import Onboarding from './pages/onboarding';
 import AddSale from './pages/add-sale';
 import AddExpense from './pages/add-expense';
