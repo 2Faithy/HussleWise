@@ -1,0 +1,202 @@
+/* Header.css */
+.header {
+  background-color: #ECBC94;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+
+.logo-container {
+  height: 40px;
+  z-index: 100;
+}
+
+.logo-img {
+  height: 100%;
+  width: auto;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #1C5B56;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #1C5B56;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-list a:hover {
+  color: #0E1B1A;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.sign-in, .sign-up {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: 'Space Mono', monospace;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sign-in {
+  background: transparent;
+  border: 1px solid #1C5B56;
+  color: #1C5B56;
+}
+
+.sign-in:hover {
+  background: rgba(28, 91, 86, 0.1);
+}
+
+.sign-up {
+  background: #1C5B56;
+  border: 1px solid #1C5B56;
+  color: white;
+}
+
+.sign-up:hover {
+  background: #0E1B1A;
+  border-color: #0E1B1A;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #ECBC94;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 5rem 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 99;
+  }
+
+  .nav.mobile-open {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .auth-buttons {
+    margin: 2rem 0 0;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sign-in, .sign-up {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  /* Reduce logo size on mobile */
+  .logo-container {
+    height: 30px; /* Reduced from 40px */
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto; /* Push to far right */
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #ECBC94;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 5rem;
+    padding-left: 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 99;
+  }
+
+  .nav.mobile-open {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .auth-buttons {
+    margin: 2rem 0 0;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .sign-in, .sign-up {
+    width: 90%;
+    padding: 0.8rem;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  .logo-container {
+    height: 25px; /* Even smaller for very small devices */
+  }
+
+  .header {
+    padding: 0.8rem;
+  }
+
+  .menu-toggle {
+    padding: 3px;
+  }
+}

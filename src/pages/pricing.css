@@ -1,0 +1,469 @@
+/* Pricing.css */
+.pricing-page {
+  font-family: 'Space Mono', monospace;
+  color: #0E1B1A;
+}
+
+/* Hero Section */
+.pricing-hero {
+  background: linear-gradient(135deg, #1C5B56 0%, #0E1B1A 100%);
+  color: white;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.pricing-hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.pricing-hero .subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Pricing Plans */
+.pricing-plans {
+  padding: 4rem 1rem;
+  background: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.plan-card {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  position: relative;
+  border: 1px solid #eaeaea;
+  transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.plan-card.popular {
+  border: 2px solid #1C5B56;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #ECBC94;
+  color: #0E1B1A;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.plan-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.plan-header h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  color: #1C5B56;
+}
+
+.price {
+  margin: 1rem 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.price .amount {
+  color: #0E1B1A;
+}
+
+.price .period {
+  font-size: 1rem;
+  color: #666;
+}
+
+.plan-header .description {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.feature-icon {
+  color: #1C5B56;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.plan-button {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #1C5B56;
+}
+
+.plan-button.primary {
+  background: #1C5B56;
+  color: white;
+}
+
+.plan-button.primary:hover {
+  background: #0E1B1A;
+}
+
+.plan-button.secondary {
+  background: transparent;
+  color: #1C5B56;
+}
+
+.plan-button.secondary:hover {
+  background: rgba(28, 91, 86, 0.1);
+}
+
+/* Value Props */
+.value-props {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.value-props h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.props-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.prop-card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.prop-icon {
+  font-size: 2rem;
+  color: #1C5B56;
+  margin-bottom: 1rem;
+}
+
+.prop-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.5rem;
+  color: #0E1B1A;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 4rem 1rem;
+  background: #f9f9f9;
+}
+
+.faq-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.faq-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #1C5B56;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* CTA Section */
+.pricing-cta {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: #ECBC94;
+}
+
+.pricing-cta h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0E1B1A;
+}
+
+.cta-button {
+  background: #1C5B56;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background: #0E1B1A;
+}
+
+/* Mobile-Specific Styles */
+@media (max-width: 768px) {
+  /* Hero Section - Full width edge to edge */
+  .pricing-hero {
+    padding: 3rem 0;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+  }
+  
+  .pricing-hero h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+  }
+  
+  .pricing-hero .subtitle {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0 1rem;
+  }
+
+  /* Pricing Plans - Full width background */
+  .pricing-plans {
+    padding: 2rem 0;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .plan-card {
+    padding: 1.5rem;
+    margin: 0;
+  }
+  
+  .plan-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .price {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+  }
+  
+  .features-list li {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+
+  /* Value Props - Full width background */
+  .value-props {
+    padding: 2rem 0;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+  }
+  
+  .value-props h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .props-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .prop-card {
+    padding: 1rem;
+  }
+  
+  .prop-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* FAQ Section - Full width background */
+  .faq-section {
+    padding: 2rem 0;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+  }
+  
+  .faq-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .faq-card {
+    padding: 1rem;
+  }
+  
+  .faq-card h3 {
+    font-size: 1rem;
+  }
+
+  /* CTA Section - Full width background */
+  .pricing-cta {
+    padding: 2rem 0;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+  }
+  
+  .pricing-cta h2 {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .pricing-hero {
+    padding: 2rem 0;
+  }
+  
+  .pricing-hero h1,
+  .pricing-hero .subtitle {
+    padding: 0 1rem;
+  }
+  
+  .plan-card {
+    padding: 1.2rem;
+  }
+  
+  .popular-badge {
+    right: 10px;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.7rem;
+  }
+  
+  .plan-button {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+  
+  .feature-icon {
+    font-size: 0.9rem;
+  }
+  
+  .props-grid,
+  .faq-grid {
+    padding: 0 1rem;
+  }
+  
+  .plans-grid {
+    padding: 0 1rem;
+  }
+}
+
+/* Interactive Mobile Elements */
+.plan-card {
+  cursor: pointer;
+}
+
+/* Add touch feedback */
+.plan-button:active {
+  transform: scale(0.98);
+}
+
+/* Mobile-friendly animations */
+@media (max-width: 768px) {
+  [data-aos] {
+    transition: opacity 0.5s ease, transform 0.5s ease !important;
+  }
+  
+  .plan-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .plan-card:active {
+    transform: scale(0.99);
+  }
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}

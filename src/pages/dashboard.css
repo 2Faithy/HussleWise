@@ -1,0 +1,368 @@
+/* dashboard.css */
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* Dashboard layout adjustments for sidebar */
+.dashboard {
+  margin-left: 300px; /* Match sidebar width */
+  min-height: 100vh;
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+  font-family: 'Space Mono', monospace;
+  background-color: #ECBC94;
+  color: #0E1B1A;
+}
+
+/* When sidebar is collapsed on desktop */
+.dashboard.sidebar-collapsed {
+  margin-left: 80px; /* Match collapsed sidebar width */
+}
+
+/* Mobile responsive - No margin adjustments on screens 992px and below */
+@media (max-width: 992px) {
+  .dashboard {
+    margin-left: 0; /* No margin on mobile since sidebar is overlay */
+    padding: 1rem; /* Reduce padding on mobile for better spacing */
+  }
+  
+  .dashboard.sidebar-collapsed {
+    margin-left: 0; /* Keep no margin on mobile even when collapsed */
+  }
+
+  /* Adjust mobile header for better spacing */
+  .dashboard-header {
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Reduce grid gaps on mobile */
+  .metrics-grid,
+  .charts-section {
+    gap: 1rem;
+  }
+  
+  /* Adjust card padding on mobile */
+  .metric-card,
+  .chart-card {
+    padding: 1rem;
+  }
+}
+
+/* For very small screens (phones in portrait) */
+@media (max-width: 576px) {
+  .dashboard {
+    padding: 0.75rem;
+  }
+  
+  .metrics-grid,
+  .charts-section {
+    gap: 0.75rem;
+  }
+}
+
+/* Ensure smooth transitions for all screen sizes above mobile */
+@media (min-width: 993px) {
+  .dashboard {
+    transition: margin-left 0.3s ease;
+  }
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #0E1B1A;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(28, 91, 86, 0.1);
+}
+
+.business-name {
+  color: #1C5B56;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.action-btn {
+  background: #1C5B56;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  background: #0E1B1A;
+  transform: translateY(-2px);
+}
+
+.whatsapp-btn {
+  background: #25D366;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.today-summary {
+  grid-column: 1 / -1;
+}
+
+.metric-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.money-in {
+  color: #1C5B56;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.money-out {
+  color: #D64545;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.balance {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.profit-message {
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+/* Health Card */
+.health-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.health-score {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.health-tips p {
+  margin-bottom: 1rem;
+}
+
+.upgrade-btn {
+  background: none;
+  border: none;
+  color: #1C5B56;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+/* Transactions */
+.transactions-list {
+  margin: 1rem 0;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.txn-icon {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.money-in-icon {
+  color: #1C5B56;
+}
+
+.money-out-icon {
+  color: #D64545;
+}
+
+.txn-details {
+  flex: 1;
+}
+
+.txn-description {
+  font-weight: 500;
+  margin: 0;
+}
+
+.txn-date {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+}
+
+.txn-amount {
+  font-weight: 700;
+}
+
+.view-all-btn {
+  background: none;
+  border: none;
+  color: #1C5B56;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+}
+
+/* Charts Section */
+.charts-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.chart-placeholder {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 200px;
+}
+
+.weekly-data {
+  list-style: none;
+  padding: 0;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #1C5B56;
+}
+
+/* Animations */
+[data-aos] {
+  transition-property: opacity, transform;
+}
+
+[data-aos="fade-up"] {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+[data-aos="fade-down"] {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+[data-aos="fade-right"] {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+[data-aos="fade-left"] {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+[data-aos="zoom-in"] {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .quick-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .metric-values {
+    grid-template-columns: 1fr;
+  }
+  
+  .health-score {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  background-color: #ECBC94;
+  color: #0E1B1A;
+  position: relative;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
+  margin: 0 auto;
+}

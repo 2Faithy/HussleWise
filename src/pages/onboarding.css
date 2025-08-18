@@ -1,0 +1,368 @@
+/* Onboarding.css - Scoped Styles */
+
+/* Base Styles - Scoped to onboarding container */
+.onboarding-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Space Mono', monospace;
+  color: #0E1B1A;
+  background-color: #ECBC94;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Scoped typography */
+.onboarding-container h2,
+.onboarding-container h3,
+.onboarding-container h4 {
+  font-family: 'Montserrat', sans-serif;
+  color: #0E1B1A;
+}
+
+/* Progress Bar - Scoped */
+.onboarding-container .progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.onboarding-container .progress-step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(28, 91, 86, 0.2);
+  color: #0E1B1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.onboarding-container .progress-step.active {
+  background-color: #1C5B56;
+  color: white;
+}
+
+.onboarding-container .progress-step.completed {
+  background-color: #1C5B56;
+  color: white;
+  opacity: 0.8;
+}
+
+.onboarding-container .progress-line {
+  flex: 1;
+  height: 2px;
+  background-color: rgba(28, 91, 86, 0.2);
+  margin: 0 5px;
+}
+
+.onboarding-container .progress-line.completed {
+  background-color: #1C5B56;
+  opacity: 0.6;
+}
+
+/* Form Styles - Scoped */
+.onboarding-container h2 {
+  color: #0E1B1A;
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.onboarding-container p {
+  color: rgba(14, 27, 26, 0.8);
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.onboarding-container .form-group {
+  margin-bottom: 20px;
+}
+
+.onboarding-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #0E1B1A;
+  font-size: 14px;
+}
+
+.onboarding-container input,
+.onboarding-container select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(28, 91, 86, 0.3);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border 0.3s;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.onboarding-container input:focus,
+.onboarding-container select:focus {
+  border-color: #1C5B56;
+  outline: none;
+  background-color: white;
+}
+
+/* Button Styles - Scoped */
+.onboarding-container .button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.onboarding-container .btn-primary {
+  background-color: #1C5B56;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.onboarding-container .btn-primary:hover {
+  background-color: #0E1B1A;
+}
+
+.onboarding-container .btn-secondary {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #0E1B1A;
+  border: 1px solid rgba(28, 91, 86, 0.3);
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s;
+  margin-right: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.onboarding-container .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.onboarding-container .btn-notification {
+  background-color: #1C5B56;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s;
+  width: 100%;
+  margin-top: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.onboarding-container .btn-notification:hover {
+  background-color: #0E1B1A;
+}
+
+/* Registration Options - Scoped */
+.onboarding-container .registration-options {
+  margin-top: 20px;
+}
+
+.onboarding-container .option-card {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(28, 91, 86, 0.1);
+}
+
+.onboarding-container .radio-group {
+  margin-top: 15px;
+}
+
+.onboarding-container .radio-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.onboarding-container .radio-group input[type="radio"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+.onboarding-container .benefits-card {
+  background-color: rgba(28, 91, 86, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  border: 1px solid rgba(28, 91, 86, 0.2);
+}
+
+.onboarding-container .benefits-card h4 {
+  color: #1C5B56;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.onboarding-container .benefits-card ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.onboarding-container .benefits-card li {
+  margin-bottom: 8px;
+  color: rgba(14, 27, 26, 0.9);
+}
+
+/* Welcome Section - Scoped */
+.onboarding-container .welcome-section {
+  text-align: center;
+}
+
+.onboarding-container .quick-start-card {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 25px 0;
+  border: 1px solid rgba(28, 91, 86, 0.1);
+}
+
+.onboarding-container .guide-step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.onboarding-container .step-number {
+  background-color: #1C5B56;
+  color: white;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.onboarding-container .guide-step.highlight .step-number {
+  background-color: #0E1B1A;
+}
+
+.onboarding-container .step-content {
+  text-align: left;
+}
+
+.onboarding-container .step-content strong {
+  color: #0E1B1A;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.onboarding-container .step-content p {
+  color: rgba(14, 27, 26, 0.8);
+  font-size: 13px;
+  margin: 5px 0 0;
+}
+
+.onboarding-container .permission-request {
+  background-color: rgba(28, 91, 86, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(28, 91, 86, 0.2);
+}
+
+.onboarding-container .permission-request h4 {
+  color: #1C5B56;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.onboarding-container .permission-request p {
+  margin-bottom: 10px;
+}
+
+.onboarding-container .permission-request ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.onboarding-container .permission-request li {
+  margin-bottom: 5px;
+  color: rgba(14, 27, 26, 0.9);
+}
+
+/* Responsive Styles - Scoped */
+@media (max-width: 480px) {
+  .onboarding-container {
+    padding: 15px;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 100vh;
+  }
+
+  .onboarding-container h2 {
+    font-size: 20px;
+  }
+
+  .onboarding-container .progress-step {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .onboarding-container .button-group {
+    flex-direction: column;
+  }
+
+  .onboarding-container .btn-secondary {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .onboarding-container .quick-start-card {
+    padding: 15px;
+  }
+
+  .onboarding-container .guide-step {
+    margin-bottom: 15px;
+  }
+}
+
+/* AOS Animations - Scoped */
+.onboarding-container [data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.onboarding-container [data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.onboarding-container [data-aos="zoom-in"] {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s ease;
+}
+
+.onboarding-container [data-aos="zoom-in"].aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}

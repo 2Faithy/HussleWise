@@ -1,0 +1,476 @@
+/* Mobile-First AboutUs.css */
+.about-page {
+  font-family: 'Space Mono', monospace;
+  color: #0E1B1A;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Base container styling */
+.container {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Hero Section - Edge to edge on mobile */
+.about-hero {
+  background: linear-gradient(135deg, #1C5B56 0%, #0E1B1A 100%);
+  color: white;
+  padding: 3.5rem 0; /* Remove horizontal padding */
+  text-align: center;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.about-hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.75rem, 6vw, 3.5rem);
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+  font-weight: 700;
+  padding: 0 1rem; /* Add padding for text readability */
+}
+
+.about-hero .subtitle {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  opacity: 0.9;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 1rem; /* Add padding for text readability */
+}
+
+/* Company Overview - Edge to edge on mobile */
+.company-overview {
+  padding: 3rem 0; /* Remove horizontal padding */
+  background: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.overview-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 100%;
+  padding: 0 1rem; /* Add padding for content */
+}
+
+.overview-text h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: #1C5B56;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.overview-text p {
+  margin-bottom: 1.5rem;
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  color: #333;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.stat-card {
+  background: #f8f8f8;
+  padding: 1.25rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.stat-card:active {
+  transform: scale(0.98);
+}
+
+.stat-number {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 700;
+  color: #1C5B56;
+  display: block;
+}
+
+.stat-label {
+  font-size: clamp(0.75rem, 3vw, 0.9rem);
+  color: #555;
+}
+
+.overview-image {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.overview-image img {
+  width: 85%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* HussleWise Focus - Edge to edge on mobile */
+.husslewise-focus {
+  padding: 3rem 0; /* Remove horizontal padding */
+  background: #f9f9f9;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.husslewise-focus h2 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: #1C5B56;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  padding: 0 1rem; /* Add padding for title */
+}
+
+.focus-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0 1rem; /* Add padding for content */
+}
+
+.focus-card {
+  background: white;
+  padding: 1.75rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-top: 3px solid #ECBC94;
+  transition: transform 0.2s ease;
+}
+
+.focus-card:active {
+  transform: scale(0.98);
+}
+
+.focus-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  color: #0E1B1A;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.focus-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* Services Section - Edge to edge on mobile */
+.services-section {
+  padding: 3rem 0; /* Remove horizontal padding */
+  background: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.services-section h2 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: #1C5B56;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  padding: 0 1rem; /* Add padding for title */
+}
+
+.section-intro {
+  text-align: center;
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+  color: #444;
+  max-width: 95%;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  padding: 0 1rem; /* Add padding for grid */
+}
+
+.service-card {
+  background: #f8f8f8;
+  padding: 1.75rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.service-card:active {
+  transform: translateY(2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-icon {
+  width: 55px;
+  height: 55px;
+  background: rgba(28, 91, 86, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: #1C5B56;
+}
+
+.service-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #0E1B1A;
+  font-weight: 600;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* CTA Section - Edge to edge on mobile */
+.about-cta {
+  padding: 3.5rem 0; /* Remove horizontal padding */
+  background: #ECBC94;
+  text-align: center;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.about-cta h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: #0E1B1A;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  padding: 0 1rem; /* Add padding for title */
+}
+
+.about-cta p {
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+  color: #333;
+  max-width: 95%;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 0 1rem; /* Add padding for buttons */
+}
+
+.primary-btn, .secondary-btn {
+  padding: 0.9rem 1.5rem;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.primary-btn {
+  background: #1C5B56;
+  color: white;
+  border: 2px solid #1C5B56;
+}
+
+.primary-btn:active {
+  background: #0E1B1A;
+  transform: translateY(2px);
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #1C5B56;
+  border: 2px solid #1C5B56;
+}
+
+.secondary-btn:active {
+  background: #1C5B56;
+  color: white;
+  transform: translateY(2px);
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 480px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .cta-buttons {
+    max-width: none;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .primary-btn, .secondary-btn {
+    width: auto;
+    min-width: 180px;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Reset full-width containers to normal behavior on larger screens */
+  .about-hero,
+  .company-overview,
+  .husslewise-focus,
+  .services-section,
+  .about-cta {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5rem 2rem; /* Restore normal padding */
+  }
+  
+  .about-hero {
+    padding: 5rem 2rem;
+  }
+  
+  .company-overview,
+  .husslewise-focus,
+  .services-section {
+    padding: 3rem 2rem;
+  }
+  
+  .about-cta {
+    padding: 3.5rem 2rem;
+  }
+  
+  /* Remove mobile-specific content padding */
+  .about-hero h1,
+  .about-hero .subtitle,
+  .husslewise-focus h2,
+  .services-section h2,
+  .about-cta h2 {
+    padding: 0;
+  }
+  
+  .overview-content,
+  .focus-points,
+  .services-grid {
+    padding: 0;
+  }
+  
+  .overview-content {
+    flex-direction: row;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .overview-image {
+    margin-top: 0;
+  }
+  
+  .overview-image img {
+    width: 70%;
+  }
+  
+  .focus-points {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .focus-card {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 280px;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .cta-buttons {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+  
+  .about-hero {
+    padding: 6rem 2rem;
+  }
+  
+  .company-overview,
+  .husslewise-focus,
+  .services-section {
+    padding: 5rem 2rem;
+  }
+  
+  .overview-image img {
+    width: 60%;
+  }
+  
+  .focus-card {
+    flex: 1 1 calc(33.333% - 1.5rem);
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .about-cta {
+    padding: 5rem 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .focus-card {
+    padding: 2rem;
+  }
+  
+  .service-card {
+    padding: 2rem;
+  }
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
