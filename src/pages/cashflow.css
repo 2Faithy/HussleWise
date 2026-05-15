@@ -1,0 +1,526 @@
+/* ============================================================
+   cashflow.css — HustleWise Cashflow Page
+   ALL rules are scoped to .cf-* so they never bleed into
+   other pages. No resets, no global selectors.
+   Sidebar offset: left margin handled by .cf-root only.
+   Fonts loaded via Google Fonts in index.html or App.jsx:
+     Montserrat (headings) · Space Mono (body/data)
+   Brand: bg #ecba91 · primary #1c5b56 · dark #0e1b1a
+   ============================================================ */
+
+/* ── Root shell ────────────────────────────────────────────── */
+.cf-root {
+    /* leave room for the sidebar */
+    margin-left: 260px;         /* match your sidebar width exactly */
+    min-height: 100vh;
+    padding: 36px 36px 72px 36px;
+  
+    background: #ecba91;
+    background-image:
+      radial-gradient(ellipse at 78% 8%,  rgba(28, 91, 86, 0.07) 0%, transparent 52%),
+      radial-gradient(ellipse at 12% 92%, rgba(14, 27, 26, 0.07) 0%, transparent 48%);
+  
+    font-family: 'Space Mono', monospace;
+    color: #0e1b1a;
+    box-sizing: border-box;
+  }
+  
+  .cf-root *, .cf-root *::before, .cf-root *::after {
+    box-sizing: border-box;
+  }
+  
+  /* ── Page header ────────────────────────────────────────────── */
+  .cf-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  
+  .cf-breadcrumb {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5a706d;
+    margin-bottom: 6px;
+  }
+  
+  .cf-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 34px;
+    letter-spacing: -0.03em;
+    color: #0e1b1a;
+    margin: 0 0 4px;
+    line-height: 1.05;
+  }
+  
+  .cf-subtitle {
+    font-size: 12px;
+    color: #5a706d;
+    margin: 0;
+  }
+  
+  .cf-header-actions {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+    align-items: center;
+  }
+  
+  /* ── Buttons ────────────────────────────────────────────────── */
+  .cf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    padding: 10px 22px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    white-space: nowrap;
+  }
+  
+  .cf-btn--in {
+    background: #1c5b56;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(28, 91, 86, 0.3);
+  }
+  .cf-btn--in:hover {
+    background: #0e1b1a;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(28, 91, 86, 0.4);
+  }
+  
+  .cf-btn--out {
+    background: rgba(255, 255, 255, 0.72);
+    color: #0e1b1a;
+    border: 1.5px solid rgba(28, 91, 86, 0.18);
+    backdrop-filter: blur(6px);
+  }
+  .cf-btn--out:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #b04a2f;
+    color: #b04a2f;
+  }
+  
+  .cf-btn-arrow {
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  
+  /* ── Summary cards ──────────────────────────────────────────── */
+  .cf-summary-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .cf-card {
+    background: rgba(255, 255, 255, 0.68);
+    backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(255, 255, 255, 0.88);
+    border-radius: 16px;
+    padding: 22px 20px 18px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(14, 27, 26, 0.06);
+    transition: transform 0.16s ease, box-shadow 0.16s ease;
+  }
+  .cf-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(14, 27, 26, 0.1);
+  }
+  
+  /* top accent stripe */
+  .cf-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 16px 16px 0 0;
+  }
+  .cf-card--in::before      { background: #1c5b56; }
+  .cf-card--out::before     { background: #b04a2f; }
+  .cf-card--balance::before { background: linear-gradient(90deg, #1c5b56, #ecbc94); }
+  
+  .cf-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .cf-card-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #5a706d;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  
+  .cf-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .cf-dot--in  { background: #1c5b56; }
+  .cf-dot--out { background: #b04a2f; }
+  
+  .cf-card-ico {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .cf-card-ico--in  { background: rgba(28, 91, 86, 0.1);  color: #1c5b56; }
+  .cf-card-ico--out { background: rgba(176, 74, 47, 0.1); color: #b04a2f; }
+  
+  .cf-card-amount {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #0e1b1a;
+    margin-bottom: 4px;
+    line-height: 1.1;
+  }
+  
+  .cf-card-sub {
+    font-size: 11px;
+    color: #8fa8a5;
+    margin-bottom: 14px;
+  }
+  
+  /* progress bar */
+  .cf-progress-track {
+    height: 4px;
+    background: rgba(14, 27, 26, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .cf-progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s cubic-bezier(.4, 0, .2, 1);
+  }
+  .cf-progress-fill--in  { background: #1c5b56; }
+  .cf-progress-fill--out { background: #b04a2f; }
+  
+  /* balance ring */
+  .cf-ring-wrap {
+    position: absolute;
+    right: 16px; bottom: 16px;
+    width: 66px; height: 66px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cf-ring-svg {
+    position: absolute;
+    width: 66px; height: 66px;
+    transform: rotate(-90deg);
+  }
+  .cf-ring-track {
+    fill: none;
+    stroke: rgba(28, 91, 86, 0.1);
+    stroke-width: 6;
+  }
+  .cf-ring-fill {
+    fill: none;
+    stroke: #1c5b56;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.8s cubic-bezier(.4, 0, .2, 1);
+  }
+  .cf-ring-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    color: #1c5b56;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* shared colour helpers */
+  .cf-pos { color: #1c5b56; }
+  .cf-neg { color: #b04a2f; }
+  
+  /* ── Filters bar ────────────────────────────────────────────── */
+  .cf-filters-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(14, 27, 26, 0.04);
+  }
+  
+  /* tabs */
+  .cf-tabs {
+    display: flex;
+    gap: 4px;
+    background: rgba(14, 27, 26, 0.06);
+    border-radius: 8px;
+    padding: 3px;
+  }
+  
+  .cf-tab {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 7px 14px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #5a706d;
+    transition: all 0.14s ease;
+    white-space: nowrap;
+  }
+  .cf-tab--active {
+    background: #fff;
+    color: #0e1b1a;
+    box-shadow: 0 1px 4px rgba(14, 27, 26, 0.1);
+  }
+  .cf-tab--active-in  { color: #1c5b56; }
+  .cf-tab--active-out { color: #b04a2f; }
+  
+  /* controls */
+  .cf-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .cf-search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .cf-search-ico {
+    position: absolute;
+    left: 10px;
+    font-size: 17px;
+    color: #8fa8a5;
+    pointer-events: none;
+    line-height: 1;
+  }
+  .cf-search {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    padding: 8px 12px 8px 30px;
+    border: 1.5px solid rgba(28, 91, 86, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #0e1b1a;
+    outline: none;
+    width: 200px;
+    transition: border-color 0.14s;
+  }
+  .cf-search:focus       { border-color: #1c5b56; }
+  .cf-search::placeholder { color: #8fa8a5; }
+  
+  .cf-select {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    padding: 8px 28px 8px 12px;
+    border: 1.5px solid rgba(28, 91, 86, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #0e1b1a;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a706d' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color 0.14s;
+  }
+  .cf-select:focus { border-color: #1c5b56; }
+  
+  /* ── Transaction list ───────────────────────────────────────── */
+  .cf-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  
+  .cf-empty {
+    text-align: center;
+    padding: 64px 20px;
+    color: #5a706d;
+    font-size: 13px;
+  }
+  .cf-empty-ico {
+    display: block;
+    font-size: 38px;
+    margin-bottom: 12px;
+  }
+  
+  /* day group */
+  .cf-day-group {}
+  
+  .cf-day-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px 10px;
+    border-bottom: 1.5px solid rgba(28, 91, 86, 0.12);
+    margin-bottom: 4px;
+  }
+  .cf-day-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #2a3d3b;
+    letter-spacing: 0.01em;
+  }
+  .cf-day-sums {
+    display: flex;
+    gap: 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .cf-day-sum {}
+  
+  /* transaction rows */
+  .cf-txn-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .cf-txn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 16px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.52);
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.14s ease, border-color 0.14s ease, transform 0.14s ease;
+  }
+  .cf-txn:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(28, 91, 86, 0.14);
+    transform: translateX(3px);
+  }
+  
+  /* coloured left bar */
+  .cf-txn-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 10px 0 0 10px;
+  }
+  .cf-txn--in  .cf-txn-bar { background: #1c5b56; }
+  .cf-txn--out .cf-txn-bar { background: #b04a2f; }
+  
+  /* direction icon */
+  .cf-txn-ico {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .cf-txn-ico--in  { background: rgba(28, 91, 86, 0.1);  color: #1c5b56; }
+  .cf-txn-ico--out { background: rgba(176, 74, 47, 0.1); color: #b04a2f; }
+  
+  /* text */
+  .cf-txn-info { flex: 1; min-width: 0; }
+  
+  .cf-txn-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #0e1b1a;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .cf-txn-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .cf-txn-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+  
+  .cf-txn-method {
+    font-size: 11px;
+    color: #5a706d;
+  }
+  
+  .cf-txn-customer {
+    font-size: 11px;
+    color: #8fa8a5;
+  }
+  
+  /* amount */
+  .cf-txn-amt {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+  
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 1100px) {
+    .cf-root { margin-left: 220px; }
+  }
+  
+  @media (max-width: 900px) {
+    .cf-root          { margin-left: 0; padding: 24px 20px 56px; }
+    .cf-summary-row   { grid-template-columns: 1fr; }
+    .cf-card--balance { order: -1; }
+    .cf-ring-wrap     { display: none; }
+  }
+  
+  @media (max-width: 640px) {
+    .cf-title           { font-size: 26px; }
+    .cf-header          { flex-direction: column; align-items: flex-start; }
+    .cf-header-actions  { width: 100%; }
+    .cf-btn             { flex: 1; justify-content: center; }
+    .cf-filters-bar     { flex-direction: column; align-items: stretch; }
+    .cf-controls        { flex-direction: column; }
+    .cf-search          { width: 100%; }
+    .cf-card-amount     { font-size: 22px; }
+    .cf-txn-amt         { font-size: 13px; }
+  }
