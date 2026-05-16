@@ -21,7 +21,7 @@ import AddSale from './pages/add-sale';
 import AddExpense from './pages/add-expense';
 import SendReceipt from './pages/SendReceipt';
 import Cashflow from './pages/cashflow';
-import customers from './pages/customers';
+import Customers from './pages/customers';
 
 function Home() {
   useEffect(() => {
@@ -206,7 +206,7 @@ function AppLayout({ children }) {
     '/add-expense',
     '/send-receipt',
     '/cashflow',
-    '/customers'
+    '/customers',
   ];
 
   const isDashboardRoute = dashboardRoutes.includes(location.pathname);
@@ -282,7 +282,7 @@ function App() {
             <Route path="/add-expense" element={<AddExpense />} />
             <Route path="/send-receipt" element={<SendReceipt />} />
             <Route path="/cashflow" element={<Cashflow />} />
-            <Route path="/customers" element={<customers />} />
+            <Route path="/customers" element={<Customers />} />
             {/* Add other routes as needed */}
           </Routes>
         </AppLayout>
