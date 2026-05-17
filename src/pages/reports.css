@@ -1,0 +1,1030 @@
+/* ============================================================
+   reports.css — HustleWise Reports & Analytics Page
+   ALL rules scoped to .rr-* — zero bleed to other pages.
+   Sidebar offset via .rr-root margin-left only.
+   Brand: bg #ecba91 · primary #1c5b56 · dark #0e1b1a
+   Fonts: Montserrat (headings) · Space Mono (data/body)
+   ============================================================ */
+
+/* ── Root ───────────────────────────────────────────────────── */
+.rr-root {
+  margin-left: 260px;
+  min-height: 100vh;
+  padding: 36px 36px 80px;
+  background: #ecba91;
+  background-image: radial-gradient(
+      ellipse at 78% 5%,
+      rgba(28, 91, 86, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 10% 95%,
+      rgba(14, 27, 26, 0.07) 0%,
+      transparent 48%
+    );
+  font-family: "Space Mono", monospace;
+  color: #0e1b1a;
+  box-sizing: border-box;
+}
+.rr-root *,
+.rr-root *::before,
+.rr-root *::after {
+  box-sizing: border-box;
+}
+
+/* ── Page Header ────────────────────────────────────────────── */
+.rr-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.rr-breadcrumb {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5a706d;
+  margin-bottom: 6px;
+}
+.rr-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 34px;
+  letter-spacing: -0.03em;
+  color: #0e1b1a;
+  margin: 0 0 4px;
+  line-height: 1.05;
+}
+.rr-subtitle {
+  font-size: 12px;
+  color: #5a706d;
+  margin: 0;
+}
+
+.rr-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* Period switcher */
+.rr-period-switcher {
+  display: flex;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 9px;
+  padding: 3px;
+  backdrop-filter: blur(8px);
+}
+.rr-period-btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #5a706d;
+  cursor: pointer;
+  transition: all 0.14s;
+  white-space: nowrap;
+}
+.rr-period-btn:hover {
+  color: #1c5b56;
+}
+.rr-period-btn--active {
+  background: #1c5b56;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(28, 91, 86, 0.25);
+  font-weight: 700;
+}
+
+.rr-export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(28, 91, 86, 0.22);
+  background: rgba(255, 255, 255, 0.7);
+  color: #1c5b56;
+  cursor: pointer;
+  transition: background 0.14s, border-color 0.14s, transform 0.14s;
+}
+.rr-export-btn:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: #1c5b56;
+  transform: translateY(-1px);
+}
+
+/* ── KPI Grid ───────────────────────────────────────────────── */
+.rr-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.rr-kpi {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 20px 18px 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 27, 26, 0.06);
+  transition: transform 0.16s, box-shadow 0.16s;
+}
+.rr-kpi:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(14, 27, 26, 0.1);
+}
+.rr-kpi::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 16px 16px 0 0;
+}
+.rr-kpi--revenue::before {
+  background: #2d5fa0;
+}
+.rr-kpi--profit::before {
+  background: #1c5b56;
+}
+.rr-kpi--expenses::before {
+  background: #b04a2f;
+}
+.rr-kpi--customers::before {
+  background: #7a3ea0;
+}
+
+.rr-kpi-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.rr-kpi-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28, 91, 86, 0.08);
+  color: #1c5b56;
+}
+.rr-kpi--revenue .rr-kpi-icon {
+  background: rgba(45, 95, 160, 0.1);
+  color: #2d5fa0;
+}
+.rr-kpi--profit .rr-kpi-icon {
+  background: rgba(28, 91, 86, 0.1);
+  color: #1c5b56;
+}
+.rr-kpi--expenses .rr-kpi-icon {
+  background: rgba(176, 74, 47, 0.1);
+  color: #b04a2f;
+}
+.rr-kpi--customers .rr-kpi-icon {
+  background: rgba(122, 62, 160, 0.1);
+  color: #7a3ea0;
+}
+
+.rr-kpi-value {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  color: #0e1b1a;
+  margin-bottom: 3px;
+  line-height: 1.1;
+}
+.rr-kpi-label {
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #5a706d;
+  margin-bottom: 2px;
+}
+.rr-kpi-sub {
+  font-size: 11px;
+  color: #8fa8a5;
+  margin-bottom: 12px;
+}
+
+.rr-kpi-bar-track {
+  height: 3px;
+  background: rgba(14, 27, 26, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rr-kpi-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rr-kpi-bar-fill--rev {
+  background: #2d5fa0;
+}
+.rr-kpi-bar-fill--prof {
+  background: #1c5b56;
+}
+.rr-kpi-bar-fill--exp {
+  background: #b04a2f;
+}
+.rr-kpi-bar-fill--cst {
+  background: #7a3ea0;
+}
+
+/* Trend badges */
+.rr-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+.rr-trend--up {
+  background: rgba(28, 91, 86, 0.12);
+  color: #1c5b56;
+}
+.rr-trend--dn {
+  background: rgba(176, 74, 47, 0.12);
+  color: #b04a2f;
+}
+.rr-trend--flat {
+  background: rgba(14, 27, 26, 0.07);
+  color: #5a706d;
+}
+
+/* ── Layout rows ────────────────────────────────────────────── */
+.rr-row {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.rr-row--chart {
+  grid-template-columns: 1fr 340px;
+}
+.rr-row--three {
+  grid-template-columns: repeat(3, 1fr);
+}
+.rr-row--health {
+  grid-template-columns: 1fr;
+}
+
+/* ── Base Card ──────────────────────────────────────────────── */
+.rr-card {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(14, 27, 26, 0.06);
+  transition: box-shadow 0.16s;
+}
+.rr-card:hover {
+  box-shadow: 0 4px 20px rgba(14, 27, 26, 0.09);
+}
+
+.rr-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.rr-card-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #0e1b1a;
+  letter-spacing: 0.01em;
+}
+.rr-card-title svg {
+  color: #5a706d;
+  flex-shrink: 0;
+}
+.rr-card-sub {
+  font-size: 11px;
+  color: #8fa8a5;
+  margin-top: 3px;
+}
+.rr-card-note {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  color: #8fa8a5;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(28, 91, 86, 0.08);
+}
+
+/* ── Chart metric tabs ──────────────────────────────────────── */
+.rr-metric-tabs {
+  display: flex;
+  gap: 4px;
+  background: rgba(14, 27, 26, 0.06);
+  border-radius: 7px;
+  padding: 3px;
+}
+.rr-metric-btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 5px 11px;
+  border-radius: 5px;
+  border: none;
+  background: transparent;
+  color: #5a706d;
+  cursor: pointer;
+  transition: all 0.13s;
+  white-space: nowrap;
+}
+.rr-metric-btn:hover {
+  color: #0e1b1a;
+}
+.rr-metric-btn--active {
+  background: #fff;
+  color: #0e1b1a;
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(14, 27, 26, 0.1);
+}
+
+/* ── Bar chart ──────────────────────────────────────────────── */
+.rr-chart-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+.rr-bar-svg {
+  width: 100%;
+  min-width: 300px;
+  display: block;
+}
+.rr-bar-rect {
+  cursor: pointer;
+  transition: opacity 0.14s;
+}
+.rr-bar-rect:hover {
+  opacity: 1 !important;
+}
+
+.rr-chart-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  padding-top: 8px;
+}
+.rr-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #5a706d;
+}
+.rr-legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Chart summary row */
+.rr-chart-summary {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1.5px solid rgba(28, 91, 86, 0.08);
+  gap: 0;
+}
+.rr-cs-item {
+  flex: 1;
+  text-align: center;
+}
+.rr-cs-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #8fa8a5;
+  margin-bottom: 3px;
+}
+.rr-cs-value {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: #0e1b1a;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.rr-cs-value--green {
+  color: #1c5b56;
+}
+.rr-cs-divider {
+  width: 1px;
+  height: 30px;
+  background: rgba(28, 91, 86, 0.12);
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+
+/* ── Donut chart card ───────────────────────────────────────── */
+.rr-card--donut {
+}
+.rr-donut-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 14px;
+}
+.rr-donut-svg {
+  display: block;
+}
+.rr-donut-arc {
+  transition: stroke-dasharray 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rr-donut-center-label {
+  position: absolute;
+  text-align: center;
+  pointer-events: none;
+}
+.rr-donut-total {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  color: #0e1b1a;
+  letter-spacing: -0.02em;
+}
+.rr-donut-sub {
+  font-size: 10px;
+  color: #8fa8a5;
+}
+
+.rr-donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.rr-donut-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #2a3d3b;
+}
+.rr-donut-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.rr-donut-cat {
+  flex: 1;
+  font-size: 11px;
+}
+.rr-donut-pct {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #5a706d;
+  min-width: 34px;
+  text-align: right;
+}
+.rr-donut-amt {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #0e1b1a;
+  min-width: 70px;
+  text-align: right;
+}
+
+/* ── Best trading days ──────────────────────────────────────── */
+.rr-days-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rr-day-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rr-day-row--best .rr-day-label {
+  color: #1c5b56;
+  font-weight: 700;
+}
+.rr-day-label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #2a3d3b;
+  width: 30px;
+  flex-shrink: 0;
+}
+.rr-day-bar-wrap {
+  flex: 1;
+  height: 8px;
+  background: rgba(28, 91, 86, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.rr-day-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rr-day-val {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #0e1b1a;
+  min-width: 40px;
+  text-align: right;
+}
+.rr-day-best-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: rgba(28, 91, 86, 0.1);
+  color: #1c5b56;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Payment split ──────────────────────────────────────────── */
+.rr-payment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.rr-payment-row {
+}
+.rr-payment-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.rr-payment-method {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #2a3d3b;
+}
+.rr-payment-pct {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+}
+.rr-payment-bar-track {
+  height: 7px;
+  background: rgba(28, 91, 86, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.rr-payment-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rr-payment-amt {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  color: #5a706d;
+}
+
+/* ── Top products ───────────────────────────────────────────── */
+.rr-products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rr-product-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid transparent;
+  transition: background 0.13s, border-color 0.13s;
+}
+.rr-product-row:hover {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(28, 91, 86, 0.12);
+}
+.rr-product-rank {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(28, 91, 86, 0.1);
+  color: #1c5b56;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rr-product-info {
+  flex: 1;
+  min-width: 0;
+}
+.rr-product-name {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #0e1b1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+.rr-product-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 10px;
+  color: #8fa8a5;
+}
+.rr-product-margin {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+.rr-product-revenue {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  color: #1c5b56;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+
+/* ── Health score card ──────────────────────────────────────── */
+.rr-card--health {
+}
+.rr-health-badge {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+.rr-health-body {
+  display: grid;
+  grid-template-columns: 130px 1fr 280px;
+  gap: 28px;
+  align-items: start;
+}
+.rr-score-ring-wrap {
+  display: flex;
+  justify-content: center;
+}
+.rr-score-svg {
+  display: block;
+}
+.rr-score-arc {
+  transition: stroke-dasharray 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rr-health-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.rr-health-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rr-health-label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #2a3d3b;
+  width: 160px;
+  flex-shrink: 0;
+}
+.rr-health-bar-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rr-health-bar-track {
+  flex: 1;
+  height: 7px;
+  background: rgba(14, 27, 26, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.rr-health-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rr-health-score {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  min-width: 24px;
+  text-align: right;
+}
+
+.rr-health-tips {
+  background: rgba(28, 91, 86, 0.05);
+  border: 1px solid rgba(28, 91, 86, 0.1);
+  border-radius: 11px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.rr-health-tip-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1c5b56;
+  margin-bottom: 2px;
+}
+.rr-health-tip {
+  font-size: 12px;
+  color: #2a3d3b;
+  line-height: 1.5;
+  padding-left: 10px;
+  border-left: 2px solid rgba(28, 91, 86, 0.2);
+}
+
+/* ── AI Insights section ────────────────────────────────────── */
+.rr-insights-section {
+  margin-top: 4px;
+}
+.rr-insights-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.rr-insight-filters {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.rr-if-btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 6px 13px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(28, 91, 86, 0.18);
+  background: rgba(255, 255, 255, 0.6);
+  color: #5a706d;
+  cursor: pointer;
+  transition: all 0.13s;
+  white-space: nowrap;
+}
+.rr-if-btn:hover {
+  border-color: #1c5b56;
+  color: #1c5b56;
+}
+.rr-if-btn--active {
+  background: #1c5b56;
+  color: #fff;
+  border-color: #1c5b56;
+  font-weight: 700;
+}
+
+.rr-insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Insight card */
+.rr-insight-card {
+  background: rgba(255, 255, 255, 0.64);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.88);
+  border-radius: 13px;
+  cursor: pointer;
+  transition: background 0.14s, border-color 0.14s, box-shadow 0.14s;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(14, 27, 26, 0.05);
+}
+.rr-insight-card:hover {
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 4px 16px rgba(14, 27, 26, 0.09);
+}
+.rr-insight-card--open {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(28, 91, 86, 0.2);
+}
+
+.rr-insight-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 16px;
+}
+.rr-insight-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rr-insight-mid {
+  flex: 1;
+  min-width: 0;
+}
+.rr-insight-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.rr-insight-type {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+.rr-insight-prio {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+}
+.rr-insight-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #0e1b1a;
+  line-height: 1.3;
+}
+.rr-insight-chevron {
+  color: #8fa8a5;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.rr-insight-card--open .rr-insight-chevron {
+  transform: rotate(180deg);
+  color: #1c5b56;
+}
+
+.rr-insight-body {
+  padding: 0 16px 16px 67px;
+  animation: rr-expand 0.18s ease;
+}
+@keyframes rr-expand {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rr-insight-body-text {
+  font-size: 13px;
+  color: #2a3d3b;
+  line-height: 1.65;
+  margin: 0 0 12px;
+}
+.rr-insight-action {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #1c5b56;
+  background: rgba(28, 91, 86, 0.07);
+  border: 1px solid rgba(28, 91, 86, 0.12);
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: fit-content;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .rr-health-body {
+    grid-template-columns: 130px 1fr;
+  }
+  .rr-health-tips {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1100px) {
+  .rr-root {
+    margin-left: 220px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .rr-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rr-row--chart {
+    grid-template-columns: 1fr;
+  }
+  .rr-row--three {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .rr-root {
+    margin-left: 0;
+    padding: 24px 18px 56px;
+  }
+  .rr-health-body {
+    grid-template-columns: 1fr;
+  }
+  .rr-score-ring-wrap {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .rr-title {
+    font-size: 26px;
+  }
+  .rr-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rr-header-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .rr-period-switcher {
+    width: 100%;
+  }
+  .rr-period-btn {
+    flex: 1;
+  }
+  .rr-export-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .rr-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  .rr-row--three {
+    grid-template-columns: 1fr;
+  }
+  .rr-kpi-value {
+    font-size: 20px;
+  }
+  .rr-health-label {
+    width: 120px;
+  }
+  .rr-insight-body {
+    padding-left: 16px;
+  }
+}

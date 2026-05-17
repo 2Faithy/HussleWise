@@ -1,469 +1,896 @@
-/* Pricing.css */
-.pricing-page {
-  font-family: 'Space Mono', monospace;
-  color: #0E1B1A;
-}
+/* =====================================================
+   pricing.css — HustleWise Pricing Page
+   Matches Features.css editorial magazine aesthetic
+   Fonts: Montserrat · Space Mono
+   Colors: #1C5B56 · #0E1B1A · #ECBC94 · #faf9f7
+   ===================================================== */
 
-/* Hero Section */
-.pricing-hero {
-  background: linear-gradient(135deg, #1C5B56 0%, #0E1B1A 100%);
-  color: white;
-  padding: 5rem 1rem;
-  text-align: center;
-}
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Space+Mono:wght@400;700&display=swap');
 
-.pricing-hero h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 1rem;
-}
-
-.pricing-hero .subtitle {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Pricing Plans */
-.pricing-plans {
-  padding: 4rem 1rem;
-  background: #f9f9f9;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.plans-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.plan-card {
-  background: white;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  position: relative;
-  border: 1px solid #eaeaea;
-  transition: transform 0.3s ease;
-}
-
-.plan-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.plan-card.popular {
-  border: 2px solid #1C5B56;
-}
-
-.popular-badge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background: #ECBC94;
-  color: #0E1B1A;
-  padding: 0.3rem 1rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-}
-
-.plan-header {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.plan-header h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-  color: #1C5B56;
-}
-
-.price {
-  margin: 1rem 0;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.price .amount {
-  color: #0E1B1A;
-}
-
-.price .period {
-  font-size: 1rem;
-  color: #666;
-}
-
-.plan-header .description {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.features-list {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-}
-
-.features-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 0.8rem;
-  font-size: 0.95rem;
-}
-
-.feature-icon {
-  color: #1C5B56;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.plan-button {
-  width: 100%;
-  padding: 0.8rem;
-  border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid #1C5B56;
-}
-
-.plan-button.primary {
-  background: #1C5B56;
-  color: white;
-}
-
-.plan-button.primary:hover {
-  background: #0E1B1A;
-}
-
-.plan-button.secondary {
-  background: transparent;
-  color: #1C5B56;
-}
-
-.plan-button.secondary:hover {
-  background: rgba(28, 91, 86, 0.1);
-}
-
-/* Value Props */
-.value-props {
-  padding: 4rem 1rem;
-  text-align: center;
-}
-
-.value-props h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 3rem;
-}
-
-.props-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.prop-card {
-  padding: 1.5rem;
-  border-radius: 8px;
-  background: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.prop-icon {
-  font-size: 2rem;
-  color: #1C5B56;
-  margin-bottom: 1rem;
-}
-
-.prop-card h3 {
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 0.5rem;
-  color: #0E1B1A;
-}
-
-/* FAQ Section */
-.faq-section {
-  padding: 4rem 1rem;
-  background: #f9f9f9;
-}
-
-.faq-section h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.faq-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.faq-card h3 {
-  font-family: 'Montserrat', sans-serif;
-  color: #1C5B56;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-/* CTA Section */
-.pricing-cta {
-  padding: 4rem 1rem;
-  text-align: center;
-  background: #ECBC94;
-}
-
-.pricing-cta h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #0E1B1A;
-}
-
-.cta-button {
-  background: #1C5B56;
-  color: white;
-  border: none;
-  padding: 0.8rem 2rem;
-  border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-top: 1.5rem;
-  display: inline-block;
-}
-
-.cta-button:hover {
-  background: #0E1B1A;
-}
-
-/* Mobile-Specific Styles */
-@media (max-width: 768px) {
-  /* Hero Section - Full width edge to edge */
-  .pricing-hero {
-    padding: 3rem 0;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
-  }
-  
-  .pricing-hero h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    padding: 0 1rem;
-  }
-  
-  .pricing-hero .subtitle {
-    font-size: 1rem;
-    line-height: 1.4;
-    padding: 0 1rem;
-  }
-
-  /* Pricing Plans - Full width background */
-  .pricing-plans {
-    padding: 2rem 0;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .plans-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    padding: 0 1rem;
-  }
-  
-  .plan-card {
-    padding: 1.5rem;
-    margin: 0;
-  }
-  
-  .plan-header h3 {
-    font-size: 1.3rem;
-  }
-  
-  .price {
-    font-size: 2rem;
-    margin: 0.5rem 0;
-  }
-  
-  .features-list li {
-    font-size: 0.9rem;
-    margin-bottom: 0.6rem;
-  }
-
-  /* Value Props - Full width background */
-  .value-props {
-    padding: 2rem 0;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
-  }
-  
-  .value-props h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding: 0 1rem;
-  }
-  
-  .props-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-  
-  .prop-card {
-    padding: 1rem;
-  }
-  
-  .prop-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* FAQ Section - Full width background */
-  .faq-section {
-    padding: 2rem 0;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
-  }
-  
-  .faq-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding: 0 1rem;
-  }
-  
-  .faq-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-  
-  .faq-card {
-    padding: 1rem;
-  }
-  
-  .faq-card h3 {
-    font-size: 1rem;
-  }
-
-  /* CTA Section - Full width background */
-  .pricing-cta {
-    padding: 2rem 0;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
-  }
-  
-  .pricing-cta h2 {
-    font-size: 1.5rem;
-    padding: 0 1rem;
-  }
-  
-  .cta-button {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Small Mobile Devices */
-@media (max-width: 480px) {
-  .pricing-hero {
-    padding: 2rem 0;
-  }
-  
-  .pricing-hero h1,
-  .pricing-hero .subtitle {
-    padding: 0 1rem;
-  }
-  
-  .plan-card {
-    padding: 1.2rem;
-  }
-  
-  .popular-badge {
-    right: 10px;
-    padding: 0.2rem 0.8rem;
-    font-size: 0.7rem;
-  }
-  
-  .plan-button {
-    padding: 0.7rem;
-    font-size: 0.9rem;
-  }
-  
-  .feature-icon {
-    font-size: 0.9rem;
-  }
-  
-  .props-grid,
-  .faq-grid {
-    padding: 0 1rem;
-  }
-  
-  .plans-grid {
-    padding: 0 1rem;
-  }
-}
-
-/* Interactive Mobile Elements */
-.plan-card {
-  cursor: pointer;
-}
-
-/* Add touch feedback */
-.plan-button:active {
-  transform: scale(0.98);
-}
-
-/* Mobile-friendly animations */
-@media (max-width: 768px) {
-  [data-aos] {
-    transition: opacity 0.5s ease, transform 0.5s ease !important;
-  }
-  
-  .plan-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .plan-card:active {
-    transform: scale(0.99);
-  }
-}
-
-/* Prevent horizontal scrolling */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
+   /* ── RESET ─────────────────────────────────────────── */
+   .pp-root {
+     font-family: 'Space Mono', monospace;
+     color: #0E1B1A;
+     background: #faf9f7;
+     overflow-x: hidden;
+     line-height: 1.6;
+   }
+   
+   .pp-root * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+   }
+   
+   /* ── SHARED ────────────────────────────────────────── */
+   .pp-eyebrow {
+     display: inline-block;
+     font-family: 'Space Mono', monospace;
+     font-size: 0.72rem;
+     font-weight: 700;
+     letter-spacing: 0.18em;
+     text-transform: uppercase;
+     color: #1C5B56;
+     background: rgba(28, 91, 86, 0.1);
+     padding: 0.3rem 0.85rem;
+     border-radius: 2rem;
+     margin-bottom: 1.2rem;
+   }
+   
+   .pp-eyebrow--light {
+     color: #ECBC94;
+     background: rgba(236, 188, 148, 0.15);
+   }
+   
+   /* ── SCROLL ANIMATION BASE ─────────────────────────── */
+   .pp-plans-inner,
+   .pp-guar-inner,
+   .pp-for-inner,
+   .pp-faq-inner,
+   .pp-cta-inner {
+     opacity: 0;
+     transform: translateY(36px);
+     transition: opacity 0.7s ease, transform 0.7s ease;
+   }
+   
+   .pp-vis {
+     opacity: 1 !important;
+     transform: translateY(0) !important;
+   }
+   
+   /* ── HERO ──────────────────────────────────────────── */
+   .pp-hero {
+     min-height: 88vh;
+     background: #0E1B1A;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     padding: 7rem 2rem 5rem;
+     position: relative;
+     overflow: hidden;
+   }
+   
+   /* animated diagonal lines */
+   .pp-hero-bg {
+     position: absolute;
+     inset: 0;
+     background:
+       radial-gradient(ellipse 55% 65% at 30% 50%, rgba(28, 91, 86, 0.5) 0%, transparent 70%),
+       radial-gradient(ellipse 40% 40% at 80% 20%, rgba(236, 188, 148, 0.08) 0%, transparent 70%);
+     pointer-events: none;
+   }
+   
+   .pp-hero-bg::after {
+     content: '';
+     position: absolute;
+     inset: 0;
+     background-image:
+       linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+       linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+     background-size: 55px 55px;
+   }
+   
+   .pp-hero-inner {
+     position: relative;
+     z-index: 1;
+     max-width: 720px;
+     animation: heroIn 0.9s ease both;
+   }
+   
+   @keyframes heroIn {
+     from { opacity: 0; transform: translateY(30px); }
+     to   { opacity: 1; transform: translateY(0); }
+   }
+   
+   .pp-hero-h1 {
+     font-family: 'Montserrat', sans-serif;
+     font-size: clamp(2.8rem, 6vw, 5rem);
+     font-weight: 900;
+     color: #fff;
+     line-height: 1.05;
+     letter-spacing: -0.03em;
+     margin-bottom: 1.4rem;
+     margin-top: 0.5rem;
+   }
+   
+   .pp-hero-h1 em {
+     font-style: italic;
+     color: #ECBC94;
+   }
+   
+   .pp-hero-desc {
+     font-size: 0.95rem;
+     color: rgba(255,255,255,0.6);
+     max-width: 540px;
+     margin: 0 auto 2rem;
+     line-height: 1.9;
+   }
+   
+   .pp-hero-meta {
+     display: flex;
+     gap: 0.75rem;
+     justify-content: center;
+     flex-wrap: wrap;
+   }
+   
+   .pp-hero-chip {
+     font-family: 'Space Mono', monospace;
+     font-size: 0.7rem;
+     font-weight: 700;
+     color: rgba(255,255,255,0.55);
+     background: rgba(255,255,255,0.06);
+     border: 1px solid rgba(255,255,255,0.12);
+     padding: 0.4rem 0.9rem;
+     border-radius: 2rem;
+     letter-spacing: 0.05em;
+   }
+   
+   .pp-hero-scroll {
+     position: absolute;
+     bottom: 2.5rem;
+     left: 50%;
+     transform: translateX(-50%);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 0.6rem;
+     z-index: 1;
+     animation: heroIn 1.2s ease 0.5s both;
+   }
+   
+   .pp-hero-scroll span {
+     font-family: 'Space Mono', monospace;
+     font-size: 0.65rem;
+     color: rgba(255,255,255,0.3);
+     letter-spacing: 0.12em;
+     text-transform: uppercase;
+   }
+   
+   .pp-scroll-line {
+     width: 1px;
+     height: 40px;
+     background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+     animation: scrollPulse 2s ease-in-out infinite;
+   }
+   
+   @keyframes scrollPulse {
+     0%, 100% { opacity: 0.4; transform: scaleY(1); }
+     50% { opacity: 1; transform: scaleY(1.2); }
+   }
+   
+   /* ── PLANS ─────────────────────────────────────────── */
+   .pp-plans-section {
+     padding: 6rem 2rem 2rem;
+     max-width: 1240px;
+     margin: 0 auto;
+   }
+   
+   .pp-plans-inner {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 1.5rem;
+     align-items: start;
+   }
+   
+   .pp-plan {
+     background: #fff;
+     border: 1.5px solid #e8e4de;
+     border-radius: 14px;
+     padding: 2.2rem 2rem;
+     display: flex;
+     flex-direction: column;
+     gap: 1.5rem;
+     position: relative;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     opacity: 0;
+     transform: translateY(28px);
+     transition:
+       opacity 0.55s ease calc(var(--di) * 0.12s),
+       transform 0.55s ease calc(var(--di) * 0.12s),
+       box-shadow 0.3s ease;
+   }
+   
+   .pp-vis .pp-plan {
+     opacity: 1;
+     transform: translateY(0);
+   }
+   
+   .pp-plan:hover {
+     transform: translateY(-6px) !important;
+     box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+   }
+   
+   .pp-plan--highlight {
+     background: #0E1B1A;
+     border-color: #0E1B1A;
+     transform: translateY(-12px) scale(1.02);
+   }
+   
+   .pp-vis .pp-plan--highlight {
+     transform: translateY(-12px) scale(1.02);
+   }
+   
+   .pp-plan--highlight:hover {
+     transform: translateY(-18px) scale(1.02) !important;
+     box-shadow: 0 28px 60px rgba(14,27,26,0.35);
+   }
+   
+   .pp-plan-badge {
+     position: absolute;
+     top: -14px;
+     left: 50%;
+     transform: translateX(-50%);
+     background: #ECBC94;
+     color: #0E1B1A;
+     font-family: 'Space Mono', monospace;
+     font-size: 0.65rem;
+     font-weight: 700;
+     letter-spacing: 0.12em;
+     text-transform: uppercase;
+     padding: 0.35rem 1.1rem;
+     border-radius: 2rem;
+     white-space: nowrap;
+   }
+   
+   .pp-plan-top {
+     display: flex;
+     flex-direction: column;
+     gap: 0.3rem;
+   }
+   
+   .pp-plan-num {
+     font-family: 'Space Mono', monospace;
+     font-size: 0.65rem;
+     font-weight: 700;
+     color: #1C5B56;
+     letter-spacing: 0.15em;
+     opacity: 0.7;
+   }
+   
+   .pp-plan--highlight .pp-plan-num {
+     color: #ECBC94;
+   }
+   
+   .pp-plan-name {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 1.5rem;
+     font-weight: 900;
+     color: #0E1B1A;
+     letter-spacing: -0.02em;
+   }
+   
+   .pp-plan--highlight .pp-plan-name {
+     color: #fff;
+   }
+   
+   .pp-plan-tagline {
+     font-size: 0.78rem;
+     color: #8a9290;
+     line-height: 1.5;
+   }
+   
+   .pp-plan--highlight .pp-plan-tagline {
+     color: rgba(255,255,255,0.5);
+   }
+   
+   .pp-plan-price {
+     display: flex;
+     align-items: baseline;
+     gap: 0.25rem;
+     padding-bottom: 1.2rem;
+     border-bottom: 1px solid #ede9e3;
+   }
+   
+   .pp-plan--highlight .pp-plan-price {
+     border-bottom-color: rgba(255,255,255,0.1);
+   }
+   
+   .pp-price-amount {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 2.6rem;
+     font-weight: 900;
+     color: #0E1B1A;
+     letter-spacing: -0.03em;
+     line-height: 1;
+   }
+   
+   .pp-plan--highlight .pp-price-amount {
+     color: #fff;
+   }
+   
+   .pp-price-period {
+     font-family: 'Space Mono', monospace;
+     font-size: 0.78rem;
+     color: #8a9290;
+   }
+   
+   .pp-plan--highlight .pp-price-period {
+     color: rgba(255,255,255,0.45);
+   }
+   
+   /* ── FEATURE LIST ──────────────────────────────────── */
+   .pp-feature-list {
+     list-style: none;
+     display: flex;
+     flex-direction: column;
+     gap: 0.6rem;
+     flex: 1;
+   }
+   
+   .pp-feat {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+     font-size: 0.8rem;
+     line-height: 1.5;
+     color: #3d4f4e;
+   }
+   
+   .pp-plan--highlight .pp-feat {
+     color: rgba(255,255,255,0.75);
+   }
+   
+   .pp-feat--off {
+     color: #b5bcbb;
+     text-decoration: line-through;
+     opacity: 0.6;
+   }
+   
+   .pp-plan--highlight .pp-feat--off {
+     color: rgba(255,255,255,0.25);
+   }
+   
+   .pp-feat-dot {
+     width: 6px;
+     height: 6px;
+     border-radius: 50%;
+     background: #1C5B56;
+     flex-shrink: 0;
+   }
+   
+   .pp-plan--highlight .pp-feat-dot {
+     background: #ECBC94;
+   }
+   
+   .pp-feat--off .pp-feat-dot {
+     background: #ccc;
+   }
+   
+   /* ── PLAN BUTTONS ──────────────────────────────────── */
+   .pp-plan-btn {
+     width: 100%;
+     padding: 0.9rem 1.5rem;
+     border-radius: 6px;
+     font-family: 'Montserrat', sans-serif;
+     font-size: 0.88rem;
+     font-weight: 700;
+     cursor: pointer;
+     transition: all 0.25s ease;
+     letter-spacing: 0.02em;
+   }
+   
+   .pp-plan-btn--primary {
+     background: #ECBC94;
+     color: #0E1B1A;
+     border: none;
+   }
+   
+   .pp-plan-btn--primary:hover {
+     background: #f0cba8;
+     transform: translateY(-2px);
+     box-shadow: 0 8px 24px rgba(236,188,148,0.4);
+   }
+   
+   .pp-plan-btn--ghost {
+     background: transparent;
+     color: #1C5B56;
+     border: 2px solid #1C5B56;
+   }
+   
+   .pp-plan-btn--ghost:hover {
+     background: #1C5B56;
+     color: #fff;
+   }
+   
+   .pp-plan-btn--outline {
+     background: transparent;
+     color: #fff;
+     border: 2px solid rgba(255,255,255,0.25);
+   }
+   
+   .pp-plan-btn--outline:hover {
+     border-color: #ECBC94;
+     color: #ECBC94;
+   }
+   
+   /* ── FOOTNOTE ──────────────────────────────────────── */
+   .pp-footnote {
+     text-align: center;
+     font-family: 'Space Mono', monospace;
+     font-size: 0.68rem;
+     color: #aaa;
+     letter-spacing: 0.06em;
+     padding: 1.5rem 2rem 4rem;
+   }
+   
+   /* ── GUARANTEES ────────────────────────────────────── */
+   .pp-guarantees {
+     background: #1C5B56;
+     padding: 6rem 2rem;
+     text-align: center;
+   }
+   
+   .pp-guar-inner {
+     max-width: 900px;
+     margin: 0 auto;
+   }
+   
+   .pp-guar-h2 {
+     font-family: 'Montserrat', sans-serif;
+     font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+     font-weight: 900;
+     color: #fff;
+     letter-spacing: -0.025em;
+     margin-bottom: 3.5rem;
+   }
+   
+   .pp-guar-grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 2rem;
+   }
+   
+   .pp-guar-card {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 0.8rem;
+     padding: 2rem 1.5rem;
+     border: 1px solid rgba(255,255,255,0.12);
+     border-radius: 12px;
+     background: rgba(255,255,255,0.04);
+     opacity: 0;
+     transform: translateY(20px);
+     transition: opacity 0.5s ease calc(var(--di) * 0.15s), transform 0.5s ease calc(var(--di) * 0.15s);
+   }
+   
+   .pp-vis .pp-guar-card {
+     opacity: 1;
+     transform: translateY(0);
+   }
+   
+   .pp-guar-num {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 3rem;
+     font-weight: 900;
+     color: #ECBC94;
+     letter-spacing: -0.04em;
+     line-height: 1;
+     display: flex;
+     align-items: baseline;
+     gap: 0.2rem;
+   }
+   
+   .pp-guar-unit {
+     font-size: 1rem;
+     font-weight: 700;
+     color: rgba(236,188,148,0.6);
+   }
+   
+   .pp-guar-label {
+     font-size: 0.82rem;
+     color: rgba(255,255,255,0.55);
+     line-height: 1.6;
+     max-width: 180px;
+     text-align: center;
+   }
+   
+   /* ── WHO IT'S FOR ──────────────────────────────────── */
+   .pp-for-section {
+     padding: 7rem 2rem;
+     max-width: 1240px;
+     margin: 0 auto;
+   }
+   
+   .pp-for-inner {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 6rem;
+     align-items: center;
+   }
+   
+   .pp-for-h2 {
+     font-family: 'Montserrat', sans-serif;
+     font-size: clamp(1.8rem, 3vw, 2.8rem);
+     font-weight: 900;
+     color: #0E1B1A;
+     line-height: 1.1;
+     letter-spacing: -0.02em;
+     margin-bottom: 1.2rem;
+   }
+   
+   .pp-for-h2 em {
+     font-style: italic;
+     color: #1C5B56;
+   }
+   
+   .pp-for-desc {
+     font-size: 0.88rem;
+     color: #4a5568;
+     line-height: 1.9;
+     margin-bottom: 2rem;
+   }
+   
+   .pp-for-list {
+     display: flex;
+     flex-direction: column;
+     gap: 0.55rem;
+   }
+   
+   .pp-for-item {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+     font-size: 0.82rem;
+     color: #3d4f4e;
+     font-weight: 700;
+   }
+   
+   .pp-for-arrow {
+     color: #ECBC94;
+     font-size: 0.85rem;
+     flex-shrink: 0;
+   }
+   
+   .pp-for-visual {
+     position: relative;
+   }
+   
+   .pp-for-img {
+     width: 100%;
+     height: 480px;
+     object-fit: cover;
+     border-radius: 16px;
+     display: block;
+     filter: brightness(0.9) saturate(1.1);
+   }
+   
+   .pp-for-float {
+     position: absolute;
+     bottom: 2rem;
+     left: -2.5rem;
+     background: rgba(255,255,255,0.97);
+     border-radius: 14px;
+     padding: 1.2rem 1.4rem;
+     box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+     backdrop-filter: blur(12px);
+     min-width: 220px;
+   }
+   
+   .pp-float-label {
+     font-family: 'Space Mono', monospace;
+     font-size: 0.62rem;
+     font-weight: 700;
+     letter-spacing: 0.12em;
+     text-transform: uppercase;
+     color: #8a9290;
+     margin-bottom: 0.75rem;
+   }
+   
+   .pp-float-score {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+   }
+   
+   .pp-score-ring {
+     position: relative;
+     width: 60px;
+     height: 60px;
+     flex-shrink: 0;
+   }
+   
+   .pp-score-ring svg {
+     width: 100%;
+     height: 100%;
+     transform: rotate(-90deg);
+   }
+   
+   .pp-ring-bg {
+     fill: none;
+     stroke: #ede9e3;
+     stroke-width: 6;
+   }
+   
+   .pp-ring-fill {
+     fill: none;
+     stroke: #1C5B56;
+     stroke-width: 6;
+     stroke-linecap: round;
+     transition: stroke-dashoffset 1s ease;
+   }
+   
+   .pp-score-num {
+     position: absolute;
+     inset: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-family: 'Montserrat', sans-serif;
+     font-size: 1rem;
+     font-weight: 900;
+     color: #0E1B1A;
+   }
+   
+   .pp-score-meta {
+     display: flex;
+     flex-direction: column;
+     gap: 0.2rem;
+   }
+   
+   .pp-score-status {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 0.85rem;
+     font-weight: 700;
+     color: #0E1B1A;
+   }
+   
+   .pp-score-sub {
+     font-family: 'Space Mono', monospace;
+     font-size: 0.65rem;
+     color: #1C5B56;
+     font-weight: 700;
+   }
+   
+   /* ── FAQ ───────────────────────────────────────────── */
+   .pp-faq {
+     background: #f2efe9;
+     padding: 7rem 2rem;
+   }
+   
+   .pp-faq-inner {
+     max-width: 780px;
+     margin: 0 auto;
+   }
+   
+   .pp-faq-header {
+     margin-bottom: 3rem;
+   }
+   
+   .pp-faq-h2 {
+     font-family: 'Montserrat', sans-serif;
+     font-size: clamp(1.8rem, 3vw, 2.5rem);
+     font-weight: 900;
+     color: #0E1B1A;
+     letter-spacing: -0.02em;
+   }
+   
+   .pp-faq-list {
+     display: flex;
+     flex-direction: column;
+     gap: 0;
+   }
+   
+   .pp-faq-item {
+     border-bottom: 1px solid #ddd8cf;
+     opacity: 0;
+     transform: translateX(-16px);
+     transition:
+       opacity 0.45s ease calc(var(--di) * 0.07s),
+       transform 0.45s ease calc(var(--di) * 0.07s);
+   }
+   
+   .pp-vis .pp-faq-item {
+     opacity: 1;
+     transform: translateX(0);
+   }
+   
+   .pp-faq-q {
+     width: 100%;
+     background: none;
+     border: none;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1.4rem 0;
+     font-family: 'Montserrat', sans-serif;
+     font-size: 0.95rem;
+     font-weight: 700;
+     color: #0E1B1A;
+     cursor: pointer;
+     text-align: left;
+     gap: 1rem;
+     transition: color 0.2s;
+   }
+   
+   .pp-faq-q:hover { color: #1C5B56; }
+   
+   .pp-faq-icon {
+     font-size: 1.3rem;
+     font-weight: 300;
+     color: #1C5B56;
+     flex-shrink: 0;
+     line-height: 1;
+     font-family: 'Space Mono', monospace;
+   }
+   
+   .pp-faq-a {
+     max-height: 0;
+     overflow: hidden;
+     transition: max-height 0.4s ease, padding 0.3s ease;
+   }
+   
+   .pp-faq-open .pp-faq-a {
+     max-height: 200px;
+     padding-bottom: 1.4rem;
+   }
+   
+   .pp-faq-a p {
+     font-size: 0.84rem;
+     color: #5a6e6c;
+     line-height: 1.85;
+   }
+   
+   /* ── CTA ───────────────────────────────────────────── */
+   .pp-cta {
+     background: #0E1B1A;
+     padding: 8rem 2rem;
+     text-align: center;
+     position: relative;
+     overflow: hidden;
+   }
+   
+   .pp-cta::before {
+     content: '₦';
+     position: absolute;
+     font-family: 'Montserrat', sans-serif;
+     font-size: clamp(12rem, 30vw, 24rem);
+     font-weight: 900;
+     color: rgba(255,255,255,0.025);
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     line-height: 1;
+     pointer-events: none;
+   }
+   
+   .pp-cta-inner {
+     position: relative;
+     z-index: 1;
+     max-width: 640px;
+     margin: 0 auto;
+   }
+   
+   .pp-cta-h2 {
+     font-family: 'Montserrat', sans-serif;
+     font-size: clamp(2rem, 4.5vw, 3.5rem);
+     font-weight: 900;
+     color: #fff;
+     line-height: 1.1;
+     letter-spacing: -0.025em;
+     margin-bottom: 1.2rem;
+   }
+   
+   .pp-cta-h2 em {
+     font-style: italic;
+     color: #ECBC94;
+   }
+   
+   .pp-cta-p {
+     font-size: 0.9rem;
+     color: rgba(255,255,255,0.55);
+     margin-bottom: 2.5rem;
+     line-height: 1.9;
+   }
+   
+   .pp-cta-actions {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 1.2rem;
+   }
+   
+   .pp-btn-cta {
+     background: #ECBC94;
+     color: #0E1B1A;
+     border: none;
+     padding: 1rem 2.8rem;
+     border-radius: 6px;
+     font-family: 'Montserrat', sans-serif;
+     font-size: 1rem;
+     font-weight: 800;
+     cursor: pointer;
+     letter-spacing: 0.02em;
+     transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+   }
+   
+   .pp-btn-cta:hover {
+     background: #f0cba8;
+     transform: translateY(-2px);
+     box-shadow: 0 10px 30px rgba(236,188,148,0.35);
+   }
+   
+   .pp-cta-link {
+     font-family: 'Space Mono', monospace;
+     font-size: 0.75rem;
+     color: rgba(255,255,255,0.4);
+     text-decoration: none;
+     letter-spacing: 0.05em;
+     transition: color 0.2s;
+   }
+   
+   .pp-cta-link:hover { color: #ECBC94; }
+   
+   /* ── RESPONSIVE ────────────────────────────────────── */
+   @media (max-width: 1024px) {
+     .pp-plans-inner {
+       grid-template-columns: 1fr;
+       max-width: 480px;
+       margin: 0 auto;
+     }
+   
+     .pp-plan--highlight {
+       transform: none;
+       order: -1;
+     }
+   
+     .pp-vis .pp-plan--highlight {
+       transform: none;
+     }
+   
+     .pp-guar-grid {
+       grid-template-columns: 1fr;
+       max-width: 380px;
+       margin: 0 auto;
+     }
+   
+     .pp-for-inner {
+       grid-template-columns: 1fr;
+       gap: 3rem;
+     }
+   
+     .pp-for-img { height: 340px; }
+   
+     .pp-for-float {
+       left: 0;
+       bottom: 1rem;
+     }
+   }
+   
+   @media (max-width: 640px) {
+     .pp-hero { min-height: 75vh; padding: 5rem 1.5rem 4rem; }
+     .pp-plans-section { padding: 4rem 1.2rem 1.5rem; }
+     .pp-guarantees { padding: 4rem 1.2rem; }
+     .pp-for-section { padding: 4rem 1.2rem; }
+     .pp-faq { padding: 4rem 1.2rem; }
+     .pp-cta { padding: 5rem 1.2rem; }
+   
+     .pp-hero-meta { flex-direction: column; align-items: center; }
+   
+     .pp-for-float { display: none; }
+   }
+   
+   /* Prevent horizontal scrolling globally */
+   html, body { max-width: 100%; overflow-x: hidden; }
