@@ -1,536 +1,412 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+/* ═══════════════════════════════════════════════
+   SIGNUP PAGE — Hussle Wise design system
+   Tokens: #ecbc94 warm · #1c5b56 teal · #0e1b1a dark
+═══════════════════════════════════════════════ */
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap");
+
+/* ── PAGE ── */
+.su-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
 }
 
-body {
-  font-family: "Inter", sans-serif;
-  color: #333;
+/* ── CARD ── */
+.su-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════
+   LEFT PANEL — background image + overlay
+═══════════════════════════════════════════════ */
+.su-left {
+  position: relative;
+  background-image: url("https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Dark teal overlay — no white box, just a gradient on top of the photo */
+.su-left__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(14, 27, 26, 0.88) 0%,
+    rgba(28, 91, 86, 0.8) 100%
+  );
+  z-index: 0;
+}
+
+.su-left__content {
+  position: relative;
+  z-index: 1;
+  padding: 4rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.su-left__logo {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  color: #ecbc94;
+  margin-bottom: 3rem;
+  display: inline-block;
+  border: 2px solid rgba(236, 188, 148, 0.35);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  align-self: flex-start;
+}
+
+.su-left__heading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.su-left__sub {
+  font-family: "Space Mono", monospace;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
+  max-width: 380px;
+}
+
+.su-left__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.su-left__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
   line-height: 1.6;
 }
 
-h1,
-h2,
-h3 {
+.su-left__check {
+  color: #ecbc94;
   font-weight: 700;
-  line-height: 1.2;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* ======================================================= */
-/* Main Page Layout                                        */
-/* ======================================================= */
-.signup-page {
-  display: flex;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #ecbc94 0%, #1c5b56 100%);
-}
-
-.signup-container {
-  display: flex;
-  width: 100%;
-  max-width: 1400px;
-  margin: auto;
-  min-height: 90vh;
-  box-shadow: 0 25px 60px rgba(14, 27, 26, 0.15);
-  border-radius: 24px;
-  overflow: hidden;
-  background-color: white;
-}
-
-/* ======================================================= */
-/* Left Side - Branding Section                            */
-/* ======================================================= */
-.signup-branding {
-  flex: 1.2;
-  background: linear-gradient(
-      135deg,
-      rgba(28, 91, 86, 0.9) 0%,
-      rgba(14, 27, 26, 0.9) 100%
-    ),
-    url("https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80");
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Enhanced overlay pattern */
-.signup-branding::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-      circle at 20% 50%,
-      rgba(236, 188, 148, 0.1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(236, 188, 148, 0.15) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 80%,
-      rgba(236, 188, 148, 0.1) 0%,
-      transparent 50%
-    );
-  pointer-events: none;
-}
-
-.signup-branding::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(14, 27, 26, 0.3);
-  pointer-events: none;
-}
-
-.signup-heading {
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  margin-bottom: 1.5rem;
-  z-index: 2;
-  position: relative;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.signup-description {
-  font-size: clamp(1rem, 1.5vw, 1.125rem);
-  opacity: 0.95;
-  margin-bottom: 2.5rem;
-  max-width: 500px;
-  z-index: 2;
-  position: relative;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.signup-features-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  padding: 2.5rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  z-index: 2;
-  position: relative;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.features-heading {
-  font-size: 1.375rem;
-  font-weight: 600;
-  margin-bottom: 1.25rem;
-  color: #ecbc94;
-}
-
-.features-list {
-  list-style: none;
-}
-
-.feature-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-}
-
-.feature-icon {
-  margin-right: 12px;
-  margin-top: 2px;
-  color: #ecbc94;
-  font-weight: bold;
-  font-size: 1.1rem;
   flex-shrink: 0;
+  margin-top: 1px;
 }
 
-/* ======================================================= */
-/* Right Side - Auth Form Section                          */
-/* ======================================================= */
-.signup-form-container {
-  flex: 1;
-  padding: 4rem 3rem;
+/* ═══════════════════════════════════════════════
+   RIGHT PANEL
+═══════════════════════════════════════════════ */
+.su-right {
+  background: #ffffff;
+  padding: 4rem 3.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
+  overflow-y: auto;
 }
 
-.form-title {
-  font-size: clamp(2rem, 3.5vw, 2.5rem);
+.su-eyebrow {
+  font-family: "Space Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1c5b56;
+  margin-bottom: 0.6rem;
+}
+
+.su-right__heading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   color: #0e1b1a;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  background: linear-gradient(135deg, #1c5b56 0%, #0e1b1a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.form-subtitle {
-  text-align: center;
-  color: #666;
-  margin-bottom: 2.5rem;
-  font-size: 1rem;
-}
-
-.social-login {
-  display: flex;
-  gap: 1rem;
+  line-height: 1.15;
   margin-bottom: 2rem;
 }
 
-.social-btn {
-  flex: 1;
+/* ── SOCIAL BUTTONS ── */
+.su-socials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.su-social-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 1rem;
-  border-radius: 12px;
-  font-weight: 500;
+  gap: 0.6rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #0e1b1a;
+  background: #ffffff;
+  border: 1px solid rgba(14, 27, 26, 0.14);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
   cursor: pointer;
-  border: 2px solid #e5e7eb;
-  background-color: white;
-  transition: all 0.3s ease-in-out;
-  font-size: 0.95rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+.su-social-btn:hover {
+  border-color: #1c5b56;
+  background: #faf7f3;
 }
 
-.social-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  border-color: #ecbc94;
-}
-
-.google-btn:hover {
-  background-color: #fafafa;
-}
-
-.apple-btn:hover {
-  background-color: #fafafa;
-}
-
-.social-icon {
-  font-size: 1.5rem;
-}
-
-.divider {
+/* ── DIVIDER ── */
+.su-divider {
   display: flex;
   align-items: center;
-  text-align: center;
-  color: #999;
-  margin: 2rem 0;
+  gap: 1rem;
+  margin: 1.25rem 0;
+  color: #b0bfbe;
+  font-family: "Space Mono", monospace;
+  font-size: 0.72rem;
 }
-
-.divider::before,
-.divider::after {
+.su-divider::before,
+.su-divider::after {
   content: "";
   flex: 1;
-  border-bottom: 1px solid #e5e7eb;
+  height: 1px;
+  background: rgba(14, 27, 26, 0.1);
 }
 
-.divider-text {
-  padding: 0 1.5rem;
-  background: white;
-  font-size: 0.9rem;
-  font-weight: 500;
+/* ── ALERT ── */
+.su-alert {
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  border-left: 3px solid;
+}
+.su-alert--success {
+  background: rgba(28, 91, 86, 0.06);
+  color: #1c5b56;
+  border-left-color: #1c5b56;
+}
+.su-alert--error {
+  background: rgba(220, 53, 69, 0.05);
+  color: #b91c1c;
+  border-left-color: #dc3545;
 }
 
-.alert {
-  padding: 1rem;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-  border-left: 4px solid;
-}
-
-.alert.success {
-  background-color: #d1fae5;
-  color: #065f46;
-  border-left-color: #10b981;
-}
-
-.alert.error {
-  background-color: #fee2e2;
-  color: #991b1b;
-  border-left-color: #ef4444;
-}
-
-.auth-form {
+/* ── FORM ── */
+.su-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-.form-group {
-  position: relative;
+.su-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
-.input-icon {
-  position: absolute;
-  top: 50%;
-  left: 28rem;
-  transform: translateY(-50%);
+.su-field label {
+  font-family: "Space Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: #1c5b56;
+}
+
+.su-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #b0bfbe;
+}
+
+.su-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.su-input-icon {
+  position: absolute;
+  left: 0.9rem;
+  color: #7a9896;
   pointer-events: none;
-  z-index: 1;
+  flex-shrink: 0;
 }
 
-.form-input {
+.su-input-wrap input {
   width: 100%;
-  padding: 1.25rem 1.25rem 1.25rem 3.5rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.3s ease-in-out;
-  background: white;
-  font-family: "Inter", sans-serif;
+  padding: 0.8rem 0.9rem 0.8rem 2.5rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.83rem;
+  color: #0e1b1a;
+  background: #ffffff;
+  border: 1px solid rgba(14, 27, 26, 0.14);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-
-.form-input::placeholder {
-  color: #9ca3af;
+.su-input-wrap input::placeholder {
+  color: #b0bfbe;
 }
-
-.form-input:focus {
+.su-input-wrap input:focus {
   outline: none;
   border-color: #1c5b56;
-  box-shadow: 0 0 0 4px rgba(28, 91, 86, 0.1);
-  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(28, 91, 86, 0.08);
 }
 
-.submit-btn {
+.su-field select {
   width: 100%;
-  background: linear-gradient(135deg, #1c5b56 0%, #0e1b1a 100%);
-  color: white;
-  padding: 1.25rem;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 0.8rem 0.9rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.83rem;
+  color: #0e1b1a;
+  background: #ffffff;
+  border: 1px solid rgba(14, 27, 26, 0.14);
+  border-radius: 8px;
+  appearance: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 0.5rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.su-field select:focus {
+  outline: none;
+  border-color: #1c5b56;
+  box-shadow: 0 0 0 3px rgba(28, 91, 86, 0.08);
 }
 
-.submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(14, 27, 26, 0.3);
+/* ── SUBMIT ── */
+.su-submit {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: #1c5b56;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.95rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+  margin-top: 0.25rem;
+}
+.su-submit:hover {
+  background: #0e1b1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(14, 27, 26, 0.2);
+}
+.su-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
-.submit-btn:active {
-  transform: translateY(-1px);
-}
-
-.auth-toggle {
-  text-align: center;
+/* ── TOGGLE ── */
+.su-toggle {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid rgba(14, 27, 26, 0.08);
+  font-family: "Space Mono", monospace;
+  font-size: 0.78rem;
+  color: #7a9896;
+  text-align: center;
 }
-
-.auth-toggle p {
-  color: #666;
-  margin-bottom: 0.75rem;
-}
-
-.toggle-btn {
+.su-toggle button {
   background: none;
   border: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
   color: #1c5b56;
-  font-weight: 600;
   cursor: pointer;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  padding: 0;
+  transition: color 0.2s ease;
 }
-
-.toggle-btn:hover {
-  background-color: #f0f9f7;
+.su-toggle button:hover {
   color: #0e1b1a;
 }
 
-.terms-text {
-  font-size: 0.85rem;
-  color: #666;
+/* ── TERMS ── */
+.su-terms {
+  font-family: "Space Mono", monospace;
+  font-size: 0.72rem;
+  color: #b0bfbe;
   text-align: center;
-  margin-top: 1.5rem;
-  line-height: 1.5;
+  margin-top: 1rem;
+  line-height: 1.7;
 }
-
-.terms-link {
+.su-terms a {
   color: #1c5b56;
-  font-weight: 500;
-  transition: color 0.2s ease-in-out;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-
-.terms-link:hover {
+.su-terms a:hover {
   color: #0e1b1a;
 }
 
-/* ======================================================= */
-/* Mobile Responsiveness                                   */
-/* ======================================================= */
-@media (max-width: 1024px) {
-  .signup-container {
-    max-width: 95%;
-    border-radius: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .signup-page {
-    background: #f8f6f3;
-    padding: 0;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-  }
-
-  .signup-container {
-    flex-direction: column;
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 820px) {
+  .su-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
     min-height: 100vh;
-    border-radius: 0;
-    box-shadow: none;
-    max-width: 100%;
-    width: 100vw;
-    flex-direction: column-reverse;
   }
 
-  .signup-branding {
-    flex: none;
-    min-height: 60vh;
-    padding: 2rem 1rem; /* Reduced horizontal padding */
-    text-align: center;
-    background: linear-gradient(
-        135deg,
-        rgba(28, 91, 86, 0.95) 0%,
-        rgba(14, 27, 26, 0.95) 100%
-      ),
-      url("https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80");
-    background-size: cover;
-    background-position: center;
-    order: 2;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+  /* Image panel becomes a banner at the top */
+  .su-left {
+    min-height: 45vh;
+    align-items: flex-end;
   }
 
-  .signup-heading {
-    font-size: 2rem;
-    padding: 0 1rem; /* Add padding for text readability */
+  .su-left__content {
+    padding: 2rem 1.75rem 2.5rem;
+    width: 100%;
   }
 
-  .signup-description {
-    font-size: 1rem;
-    max-width: 100%;
-    padding: 0 1rem; /* Add padding for text readability */
+  .su-left__sub {
+    display: none;
   }
 
-  .signup-features-card {
-    margin: 1rem;
-    padding: 2rem;
-  }
-
-  .signup-form-container {
-    flex: none;
-    padding: 2.5rem 0; /* Remove horizontal padding */
-    background: white;
-    order: 1;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-  }
-
-  .form-title {
-    font-size: 1.75rem;
-    padding: 0 1rem; /* Add padding for text readability */
-  }
-
-  .form-subtitle {
-    padding: 0 1rem; /* Add padding for text readability */
-  }
-
-  .auth-form,
-  .social-login,
-  .divider,
-  .alert,
-  .auth-toggle,
-  .terms-text {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-
-  .social-login {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .social-btn {
-    padding: 1rem;
-    font-size: 0.9rem;
+  .su-right {
+    padding: 2.5rem 1.75rem;
+    justify-content: flex-start;
   }
 }
 
 @media (max-width: 480px) {
-  .signup-branding {
-    padding: 1.5rem 1rem;
+  .su-left {
+    min-height: 38vh;
   }
-
-  .signup-form-container {
-    padding: 2rem 0; /* Remove horizontal padding */
+  .su-left__content {
+    padding: 1.5rem 1.25rem 2rem;
   }
-
-  .form-input {
-    padding: 1rem 1rem 1rem 3.5rem;
+  .su-right {
+    padding: 2rem 1.25rem;
   }
-
-  .submit-btn {
-    padding: 1rem;
-    font-size: 1rem;
+  .su-socials {
+    grid-template-columns: 1fr;
   }
-
-  .signup-features-card {
-    margin: 0.5rem;
-    padding: 1.5rem;
+  .su-right__heading {
+    font-size: 1.4rem;
   }
-
-  .auth-form,
-  .social-login,
-  .divider,
-  .alert,
-  .auth-toggle,
-  .terms-text {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-}
-
-/* Prevent horizontal scrolling */
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
 }

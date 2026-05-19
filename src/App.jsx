@@ -38,6 +38,8 @@ import Cashflow from "./pages/cashflow";
 import Customers from "./pages/customers";
 import Receiptspromos from "./pages/receiptspromos";
 import Reports from "./pages/reports";
+import Payments from "./pages/payments";
+import CacRegistration from "./pages/cac-registration";
 
 function Home() {
   useEffect(() => {
@@ -312,6 +314,8 @@ function AppLayout({ children }) {
     "/customers",
     "/receiptspromos",
     "/reports",
+    "/payments",
+    "/cac-registration"
   ];
 
   const isDashboardRoute = dashboardRoutes.includes(location.pathname);
@@ -386,6 +390,8 @@ function App() {
             <Route path="/customers" element={<Customers />} />
             <Route path="/receiptspromos" element={<Receiptspromos />} />
             <Route path="/reports" element={<Reports />} />
+            <Route path="/payments" element={<Payments />} />
+            <Route path="/cac-registration" element={<CacRegistration />} />
             {/* Add other routes as needed */}
           </Routes>
         </AppLayout>

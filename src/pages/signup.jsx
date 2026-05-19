@@ -1,19 +1,12 @@
-import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { FiUser, FiMail, FiLock, FiBriefcase } from 'react-icons/fi';
-import { FcGoogle } from 'react-icons/fc';
-import { AiOutlineApple } from 'react-icons/ai';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import './signup.css';
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { FiUser, FiMail, FiLock, FiBriefcase } from "react-icons/fi";
+import { FcGoogle } from "react-icons/fc";
+import { AiOutlineApple } from "react-icons/ai";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "./signup.css";
 
-AOS.init({
-  duration: 800,
-  easing: 'ease-in-out',
-  once: true
-});
-
-// Enhanced mock users with business types
 const mockUsers = [
   {
     id: 1,
@@ -26,8 +19,8 @@ const mockUsers = [
       todaySales: 45000,
       todayExpenses: 18000,
       balance: 27000,
-      businessHealth: 68
-    }
+      businessHealth: 68,
+    },
   },
   {
     id: 2,
@@ -40,8 +33,8 @@ const mockUsers = [
       todaySales: 185000,
       todayExpenses: 75000,
       balance: 110000,
-      businessHealth: 78
-    }
+      businessHealth: 78,
+    },
   },
   {
     id: 3,
@@ -54,207 +47,249 @@ const mockUsers = [
       todaySales: 450000,
       todayExpenses: 220000,
       balance: 230000,
-      businessHealth: 85
-    }
-  }
+      businessHealth: 85,
+    },
+  },
 ];
 
-const SignupPage = () => {
+const FEATURES = [
+  "Simple Money In / Money Out tracking",
+  "Official CAC business registration",
+  "WhatsApp receipts and customer follow-ups",
+  "Works offline with SMS sync",
+];
+
+export default function SignupPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    businessName: '',
-    businessType: 'small' // Default to small business
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    businessName: "",
+    businessType: "small",
   });
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (location.hash === '#login') {
-      setIsLogin(true);
-    } else {
-      setIsLogin(false);
-    }
+    AOS.init({ duration: 700, once: true, easing: "ease-out-quad" });
+  }, []);
+
+  useEffect(() => {
+    setIsLogin(location.hash === "#login");
     AOS.refresh();
   }, [location.hash]);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) =>
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const mockAuthAPI = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
-    setError('');
-    setSuccess('');
+    setError("");
+    setSuccess("");
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((r) => setTimeout(r, 900));
 
     if (isLogin) {
       const user = mockUsers.find(
-        user => user.email === formData.email && user.password === formData.password
+        (u) => u.email === form.email && u.password === form.password
       );
-
       if (user) {
         setSuccess(`Welcome back, ${user.name}!`);
-        // Save user to localStorage before navigating
-        localStorage.setItem('hussleWiseUser', JSON.stringify(user));
-        setTimeout(() => navigate('/dashboard'), 1500);
+        localStorage.setItem("hussleWiseUser", JSON.stringify(user));
+        setTimeout(() => navigate("/dashboard"), 1400);
       } else {
-        setError('Invalid email or password');
+        setError("Invalid email or password.");
       }
     } else {
-      const emailExists = mockUsers.some(user => user.email === formData.email);
-
-      if (emailExists) {
-        setError('Email already registered');
+      if (mockUsers.some((u) => u.email === form.email)) {
+        setError("This email is already registered.");
       } else {
+        const metrics = {
+          small: {
+            todaySales: 45000,
+            todayExpenses: 18000,
+            balance: 27000,
+            businessHealth: 68,
+          },
+          medium: {
+            todaySales: 185000,
+            todayExpenses: 75000,
+            balance: 110000,
+            businessHealth: 78,
+          },
+          large: {
+            todaySales: 450000,
+            todayExpenses: 220000,
+            balance: 230000,
+            businessHealth: 85,
+          },
+        };
         const newUser = {
           id: mockUsers.length + 1,
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-          business: formData.businessName || `${formData.name}'s Business`,
-          type: formData.businessType,
-          metrics: {
-            todaySales: formData.businessType === 'small' ? 45000 : 
-                       formData.businessType === 'medium' ? 185000 : 450000,
-            todayExpenses: formData.businessType === 'small' ? 18000 : 
-                          formData.businessType === 'medium' ? 75000 : 220000,
-            balance: formData.businessType === 'small' ? 27000 : 
-                    formData.businessType === 'medium' ? 110000 : 230000,
-            businessHealth: formData.businessType === 'small' ? 68 : 
-                           formData.businessType === 'medium' ? 78 : 85
-          }
+          name: form.name,
+          email: form.email,
+          password: form.password,
+          business: form.businessName || `${form.name}'s Business`,
+          type: form.businessType,
+          metrics: metrics[form.businessType],
         };
-
         mockUsers.push(newUser);
-        setSuccess(`Account created for ${newUser.name}!`);
-        // Save user to localStorage before navigating
-        localStorage.setItem('hussleWiseUser', JSON.stringify(newUser));
-        setTimeout(() => navigate('/onboarding'), 1500);
+        setSuccess(`Account created! Welcome, ${newUser.name}.`);
+        localStorage.setItem("hussleWiseUser", JSON.stringify(newUser));
+        setTimeout(() => navigate("/onboarding"), 1400);
       }
     }
-
     setIsLoading(false);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    mockAuthAPI();
-  };
-
-  const toggleAuthMode = () => {
-    const newIsLogin = !isLogin;
-    setIsLogin(newIsLogin);
-    navigate(newIsLogin ? '#login' : '#', { replace: true });
+  const toggle = () => {
+    const next = !isLogin;
+    setIsLogin(next);
+    setError("");
+    setSuccess("");
+    navigate(next ? "#login" : "#", { replace: true });
   };
 
   return (
-    <div className="signup-page">
-      <main className="signup-container">
-        {/* Left Side - Branding */}
-        <div className="signup-branding" data-aos="fade-right" data-aos-delay="100">
-          <h2 className="signup-heading" data-aos="fade-up" data-aos-delay="200">
-            Your Business Companion for Nigeria's Informal Sector
-          </h2>
-          <p className="signup-description" data-aos="fade-up" data-aos-delay="300">
-            Hussle Wise simplifies your business operations with easy bookkeeping, CAC registration support, 
-            and smart growth insights.
-          </p>
-          <div className="signup-features-card" data-aos="fade-up" data-aos-delay="400">
-            <h3 className="features-heading" data-aos="fade-up" data-aos-delay="450">
-              Why Choose Hussle Wise?
-            </h3>
-            <ul className="features-list">
-              {[
-                "Simple 'Money In/Money Out' tracking",
-                "Official CAC business registration",
-                "WhatsApp receipts and customer follow-ups",
-                "Works offline with SMS sync"
-              ].map((feature, index) => (
-                <li key={index} className="feature-item" data-aos="fade-up" data-aos-delay={500 + (index * 100)}>
-                  <span className="feature-icon">✓</span>
-                  {feature}
+    <div className="su-page">
+      <div className="su-card">
+        {/* ── LEFT PANEL ── */}
+        <div className="su-left">
+          {/* Overlay sits on top of the bg image */}
+          <div className="su-left__overlay" />
+
+          <div className="su-left__content">
+            <div className="su-left__logo" data-aos="fade-down">
+              HW
+            </div>
+
+            <h2
+              className="su-left__heading"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              Your business companion for Nigeria's informal sector.
+            </h2>
+            <p className="su-left__sub" data-aos="fade-up" data-aos-delay="180">
+              Simple tools to track money, manage customers, and grow your
+              hustle.
+            </p>
+
+            <ul className="su-left__list">
+              {FEATURES.map((f, i) => (
+                <li
+                  key={i}
+                  className="su-left__item"
+                  data-aos="fade-up"
+                  data-aos-delay={260 + i * 80}
+                >
+                  <span className="su-left__check">✓</span>
+                  {f}
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* Right Side - Auth Form */}
-        <div className="signup-form-container" data-aos="fade-left" data-aos-delay="100">
-          <h2 className="form-title" data-aos="fade-up" data-aos-delay="200">
-            {isLogin ? 'Welcome Back!' : 'Get Started for Free'}
-          </h2>
-          <p className="form-subtitle" data-aos="fade-up" data-aos-delay="250">
-            {isLogin ? 'Sign in to your Hussle Wise account' : 'Join thousands of Nigerian entrepreneurs'}
+        {/* ── RIGHT PANEL ── */}
+        <div className="su-right">
+          <p className="su-eyebrow" data-aos="fade-up">
+            {isLogin ? "Welcome back" : "Get started"}
           </p>
+          <h1
+            className="su-right__heading"
+            data-aos="fade-up"
+            data-aos-delay="80"
+          >
+            {isLogin ? "Sign in to your account" : "Create your free account"}
+          </h1>
 
-          <div className="social-login" data-aos="fade-up" data-aos-delay="300">
-            <button className="social-btn google-btn" data-aos="fade-right" data-aos-delay="350">
-              <FcGoogle className="social-icon" />
-              Continue with Google
+          {/* Social buttons */}
+          <div className="su-socials" data-aos="fade-up" data-aos-delay="140">
+            <button className="su-social-btn">
+              <FcGoogle size={18} /> Continue with Google
             </button>
-            <button className="social-btn apple-btn" data-aos="fade-left" data-aos-delay="350">
-              <AiOutlineApple className="social-icon" />
-              Continue with Apple
+            <button className="su-social-btn">
+              <AiOutlineApple size={18} /> Continue with Apple
             </button>
           </div>
 
-          <div className="divider" data-aos="fade-up" data-aos-delay="400">
-            <span className="divider-text">or</span>
+          <div className="su-divider" data-aos="fade-up" data-aos-delay="180">
+            <span>or</span>
           </div>
 
+          {/* Alert */}
           {(success || error) && (
-            <div className={`alert ${success ? 'success' : 'error'}`} data-aos="fade-up" data-aos-delay="450">
+            <div
+              className={`su-alert ${
+                success ? "su-alert--success" : "su-alert--error"
+              }`}
+              data-aos="fade-up"
+            >
               {success || error}
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="auth-form" data-aos="fade-up" data-aos-delay="500">
+          {/* Form */}
+          <form className="su-form" onSubmit={handleSubmit}>
             {!isLogin && (
               <>
-                <div className="form-group" data-aos="fade-up" data-aos-delay="550">
-                  <div className="input-icon">
-                    <FiUser className="icon" />
+                <div
+                  className="su-field"
+                  data-aos="fade-up"
+                  data-aos-delay="220"
+                >
+                  <label htmlFor="name">Full Name</label>
+                  <div className="su-input-wrap">
+                    <FiUser className="su-input-icon" size={15} />
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={form.name}
+                      onChange={handleChange}
+                      placeholder="Amina Ibrahim"
+                      required
+                    />
                   </div>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Full name"
-                    className="form-input"
-                    required
-                  />
                 </div>
-
-                <div className="form-group" data-aos="fade-up" data-aos-delay="600">
-                  <div className="input-icon">
-                    <FiBriefcase className="icon" />
+                <div
+                  className="su-field"
+                  data-aos="fade-up"
+                  data-aos-delay="280"
+                >
+                  <label htmlFor="businessName">
+                    Business Name{" "}
+                    <span className="su-optional">(optional)</span>
+                  </label>
+                  <div className="su-input-wrap">
+                    <FiBriefcase className="su-input-icon" size={15} />
+                    <input
+                      id="businessName"
+                      name="businessName"
+                      type="text"
+                      value={form.businessName}
+                      onChange={handleChange}
+                      placeholder="Amina Hair Studio"
+                    />
                   </div>
-                  <input
-                    type="text"
-                    name="businessName"
-                    value={formData.businessName}
-                    onChange={handleChange}
-                    placeholder="Business name (optional)"
-                    className="form-input"
-                  />
                 </div>
-
-                <div className="form-group" data-aos="fade-up" data-aos-delay="650">
-                  <label>Business Type</label>
+                <div
+                  className="su-field"
+                  data-aos="fade-up"
+                  data-aos-delay="340"
+                >
+                  <label htmlFor="businessType">Business Size</label>
                   <select
+                    id="businessType"
                     name="businessType"
-                    value={formData.businessType}
+                    value={form.businessType}
                     onChange={handleChange}
-                    className="form-input"
                   >
                     <option value="small">Small Business</option>
                     <option value="medium">Medium Business</option>
@@ -264,66 +299,80 @@ const SignupPage = () => {
               </>
             )}
 
-            <div className="form-group" data-aos="fade-up" data-aos-delay={isLogin ? "550" : "700"}>
-              <div className="input-icon">
-                <FiMail className="icon" />
-              </div>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Email address"
-                className="form-input"
-                required
-              />
-            </div>
-
-            <div className="form-group" data-aos="fade-up" data-aos-delay={isLogin ? "600" : "750"}>
-              <div className="input-icon">
-                <FiLock className="icon" />
-              </div>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Password"
-                className="form-input"
-                required
-                minLength={6}
-              />
-            </div>
-
-            <button 
-              type="submit" 
-              className="submit-btn"
-              disabled={isLoading}
-              data-aos="fade-up" 
-              data-aos-delay={isLogin ? "650" : "800"}
+            <div
+              className="su-field"
+              data-aos="fade-up"
+              data-aos-delay={isLogin ? "220" : "400"}
             >
-              {isLoading ? 'Processing...' : (isLogin ? 'Sign In' : 'Create Account')}
-            </button>
+              <label htmlFor="email">Email Address</label>
+              <div className="su-input-wrap">
+                <FiMail className="su-input-icon" size={15} />
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="amina@email.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div
+              className="su-field"
+              data-aos="fade-up"
+              data-aos-delay={isLogin ? "280" : "460"}
+            >
+              <label htmlFor="password">Password</label>
+              <div className="su-input-wrap">
+                <FiLock className="su-input-icon" size={15} />
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  value={form.password}
+                  onChange={handleChange}
+                  placeholder="Min. 6 characters"
+                  required
+                  minLength={6}
+                />
+              </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay={isLogin ? "340" : "520"}>
+              <button type="submit" className="su-submit" disabled={isLoading}>
+                {isLoading
+                  ? "Please wait…"
+                  : isLogin
+                  ? "Sign In"
+                  : "Create Account"}
+              </button>
+            </div>
           </form>
 
-          <div className="auth-toggle" data-aos="fade-up" data-aos-delay={isLogin ? "700" : "850"}>
-            <p>
-              {isLogin ? "Don't have an account?" : "Already have an account?"}
-            </p>
-            <button type="button" className="toggle-btn" onClick={toggleAuthMode}>
-              {isLogin ? 'Sign Up' : 'Sign In'}
+          {/* Toggle */}
+          <div
+            className="su-toggle"
+            data-aos="fade-up"
+            data-aos-delay={isLogin ? "400" : "580"}
+          >
+            {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
+            <button type="button" onClick={toggle}>
+              {isLogin ? "Sign Up" : "Sign In"}
             </button>
           </div>
 
-          <p className="terms-text" data-aos="fade-up" data-aos-delay={isLogin ? "750" : "900"}>
-            By {isLogin ? 'signing in' : 'signing up'}, you agree to our{' '}
-            <a href="#" className="terms-link">Terms</a> and{' '}
-            <a href="#" className="terms-link">Privacy Policy</a>.
+          <p
+            className="su-terms"
+            data-aos="fade-up"
+            data-aos-delay={isLogin ? "440" : "620"}
+          >
+            By continuing, you agree to our <a href="#">Terms</a> and{" "}
+            <a href="#">Privacy Policy</a>.
           </p>
         </div>
-      </main>
+      </div>
     </div>
   );
-};
-
-export default SignupPage;
+}
