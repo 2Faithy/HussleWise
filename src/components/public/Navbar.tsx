@@ -42,13 +42,13 @@ export default function Navbar() {
             transition-all duration-300
             ${
               scrolled
-                ? 'bg-[#ecba91]/95 backdrop-blur-2xl border border-[#1c5b56]/20 shadow-[0_20px_50px_rgba(14,27,26,0.15)]'
-                : 'bg-[#ecba91]/80 backdrop-blur-md border border-[#1c5b56]/15 shadow-[0_10px_30px_rgba(14,27,26,0.08)]'
+                ? 'bg-brand-bg/95 backdrop-blur-2xl border border-brand-primary/20 shadow-[0_20px_50px_rgba(14,27,26,0.15)]'
+                : 'bg-brand-bg/80 backdrop-blur-md border border-brand-primary/15 shadow-[0_10px_30px_rgba(14,27,26,0.08)]'
             }
           `}
         >
           {/* Ambient Subtle Glow Accent */}
-          <div className="absolute right-1/4 -bottom-10 w-32 h-32 bg-[#1c5b56]/15 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute right-1/4 -bottom-10 w-32 h-32 bg-brand-primary/15 rounded-full blur-2xl pointer-events-none" />
 
           {/* Left: Clean Green Logo & Readable Dark Text */}
           <Link to="/" className="flex items-center gap-2.5 group z-10">
@@ -60,7 +60,7 @@ export default function Navbar() {
           </Link>
 
           {/* Middle: Dynamic Navigation (Desktop) */}
-          <div className="hidden md:flex items-center gap-1 bg-[#1c5b56]/10 border border-[#1c5b56]/15 p-1 rounded-full z-10 backdrop-blur-lg">
+          <div className="hidden md:flex items-center gap-1 bg-brand-primary/10 border border-brand-primary/15 p-1 rounded-full z-10 backdrop-blur-lg">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
@@ -71,7 +71,7 @@ export default function Navbar() {
                   ${
                     isActive
                       ? 'text-white'
-                      : 'text-[#0e1b1a]/80 hover:text-[#0e1b1a] hover:bg-[#1c5b56]/10'
+                      : 'text-brand-ink/80 hover:text-brand-ink hover:bg-brand-primary/10'
                   }
                 `}
               >
@@ -80,11 +80,11 @@ export default function Navbar() {
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute inset-0 bg-[#1c5b56] rounded-full -z-10 shadow-[0_4px_15px_rgba(28,91,86,0.3)]"
+                        className="absolute inset-0 bg-brand-primary rounded-full -z-10 shadow-[0_4px_15px_rgba(28,91,86,0.3)]"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
-                    <link.icon size={13} className={isActive ? 'text-white' : 'text-[#1c5b56]'} />
+                    <link.icon size={13} className={isActive ? 'text-white' : 'text-brand-primary'} />
                     {link.name}
                   </>
                 )}
@@ -97,10 +97,10 @@ export default function Navbar() {
             {/* Log in Button */}
             <Link
               to="/login"
-              className="hidden sm:inline-flex items-center gap-1.5 font-body text-xs font-bold tracking-wider uppercase text-[#0e1b1a] hover:text-[#1c5b56] transition-colors duration-200 px-3 py-2"
+              className="hidden sm:inline-flex items-center gap-1.5 font-body text-xs font-bold tracking-wider uppercase text-brand-ink hover:text-brand-primary transition-colors duration-200 px-3 py-2"
             >
               Log in
-              <ArrowUpRight size={14} className="text-[#1c5b56]" />
+              <ArrowUpRight size={14} className="text-brand-primary" />
             </Link>
 
             {/* Main CTA */}
@@ -108,9 +108,9 @@ export default function Navbar() {
               to="/signup"
               className="
                 relative group overflow-hidden inline-flex items-center gap-2
-                bg-[#1c5b56] text-white font-body text-xs font-bold uppercase tracking-wider
+                bg-brand-primary text-white font-body text-xs font-bold uppercase tracking-wider
                 px-5 py-2.5 sm:py-3 rounded-full
-                border border-[#1c5b56]/20
+                border border-brand-primary/20
                 shadow-[0_4px_20px_rgba(28,91,86,0.35)]
                 hover:shadow-[0_6px_25px_rgba(28,91,86,0.5)]
                 hover:-translate-y-0.5
@@ -118,12 +118,12 @@ export default function Navbar() {
                 transition-all duration-300
               "
             >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              <span className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
               
-              <Sparkles size={13} className="text-[#ecbc94]" />
+              <Sparkles size={13} className="text-brand-accent" />
               <span>Get Started</span>
 
-              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-white/15 group-hover:bg-[#ecbc94] group-hover:text-[#0e1b1a] transition-all duration-300">
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-white/15 group-hover:bg-brand-accent group-hover:text-brand-ink transition-all duration-300">
                 <ArrowUpRight size={12} className="group-hover:rotate-45 transition-transform duration-300" />
               </span>
             </Link>
@@ -134,18 +134,18 @@ export default function Navbar() {
               className="
                 md:hidden relative z-50
                 w-10 h-10 rounded-full
-                bg-[#1c5b56]/10 border border-[#1c5b56]/20
+                bg-brand-primary/10 border border-brand-primary/20
                 flex items-center justify-center
-                text-[#0e1b1a] hover:text-[#1c5b56]
+                text-brand-ink hover:text-brand-primary
                 transition-colors focus:outline-none
               "
               aria-label="Toggle Menu"
             >
               {isOpen ? <X size={20} /> : (
                 <div className="flex flex-col gap-1 items-end w-4">
-                  <span className="w-full h-0.5 bg-[#0e1b1a] rounded-full" />
-                  <span className="w-3/4 h-0.5 bg-[#1c5b56] rounded-full" />
-                  <span className="w-1/2 h-0.5 bg-[#0e1b1a] rounded-full" />
+                  <span className="w-full h-0.5 bg-brand-ink rounded-full" />
+                  <span className="w-3/4 h-0.5 bg-brand-primary rounded-full" />
+                  <span className="w-1/2 h-0.5 bg-brand-ink rounded-full" />
                 </div>
               )}
             </button>
@@ -163,9 +163,9 @@ export default function Navbar() {
             transition={{ duration: 0.25, ease: 'easeInOut' }}
             className="fixed inset-x-4 top-20 z-40 md:hidden"
           >
-            <div className="bg-[#ecba91]/95 backdrop-blur-3xl border border-[#1c5b56]/20 rounded-3xl p-6 shadow-[0_20px_50px_rgba(14,27,26,0.3)] overflow-hidden relative">
+            <div className="bg-brand-bg/95 backdrop-blur-3xl border border-brand-primary/20 rounded-3xl p-6 shadow-[0_20px_50px_rgba(14,27,26,0.3)] overflow-hidden relative">
               <div className="flex flex-col gap-3 relative z-10">
-                <p className="font-body text-[10px] uppercase font-bold tracking-widest text-[#1c5b56] mb-1 px-3">
+                <p className="font-body text-[10px] uppercase font-bold tracking-widest text-brand-primary mb-1 px-3">
                   Navigation
                 </p>
 
@@ -178,31 +178,35 @@ export default function Navbar() {
                       flex items-center justify-between px-4 py-3.5 rounded-2xl font-body text-sm font-bold tracking-wide transition-all duration-200
                       ${
                         isActive
-                          ? 'bg-[#1c5b56] text-white shadow-lg'
-                          : 'text-[#0e1b1a] hover:bg-[#1c5b56]/10'
+                          ? 'bg-brand-primary text-white shadow-lg'
+                          : 'text-brand-ink hover:bg-brand-primary/10'
                       }
                     `}
                   >
-                    <div className="flex items-center gap-3">
-                      <link.icon size={18} className={({ isActive }) => isActive ? 'text-white' : 'text-[#1c5b56]'} />
-                      <span>{link.name}</span>
-                    </div>
-                    <ArrowUpRight size={16} className="opacity-60" />
+                    {({ isActive }) => (
+                      <>
+                        <div className="flex items-center gap-3">
+                          <link.icon size={18} className={isActive ? 'text-white' : 'text-brand-primary'} />
+                          <span>{link.name}</span>
+                        </div>
+                        <ArrowUpRight size={16} className="opacity-60" />
+                      </>
+                    )}
                   </NavLink>
                 ))}
 
-                <hr className="border-[#1c5b56]/20 my-2" />
+                <hr className="border-brand-primary/20 my-2" />
 
                 <div className="flex flex-col gap-2 pt-1">
                   <Link
                     to="/login"
-                    className="w-full text-center py-3 rounded-2xl font-body text-xs font-bold uppercase tracking-wider text-[#0e1b1a] border border-[#1c5b56]/20 hover:bg-[#1c5b56]/10 transition"
+                    className="w-full text-center py-3 rounded-2xl font-body text-xs font-bold uppercase tracking-wider text-brand-ink border border-brand-primary/20 hover:bg-brand-primary/10 transition"
                   >
                     Log In
                   </Link>
                   <Link
                     to="/signup"
-                    className="w-full text-center py-3.5 rounded-2xl font-body text-xs font-bold uppercase tracking-wider text-white bg-[#1c5b56] shadow-[0_4px_20px_rgba(28,91,86,0.4)] transition"
+                    className="w-full text-center py-3.5 rounded-2xl font-body text-xs font-bold uppercase tracking-wider text-white bg-brand-primary shadow-[0_4px_20px_rgba(28,91,86,0.4)] transition"
                   >
                     Start Your Free Account
                   </Link>

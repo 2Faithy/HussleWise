@@ -23,7 +23,7 @@ export interface PaymentResult {
  * which then talks to the payment processor.
  */
 export function processPayment(
-  amount: number,
+  _amount: number,
   method: PaymentMethod
 ): Promise<PaymentResult> {
   return new Promise((resolve) => {

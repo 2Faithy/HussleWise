@@ -3,7 +3,7 @@ import { useState } from 'react';
 import {
   LayoutDashboard, Receipt, HandCoins, FileText, Landmark,
   TrendingUp, Store, Building2, Settings as SettingsIcon, Package,
-  MessageSquare, Users, CircleDollarSign, Sparkles, LogOut, Menu, X
+  Users, CircleDollarSign, Sparkles, LogOut, Menu, X
 } from 'lucide-react';
 import logo from '../assets/images/logo.png';
 import { useBusinessData } from '../context/BusinessDataContext';

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Plus, Trash2, Eye, Download, MessageCircle, Mail, Share2 } from 'lucide-react';
 import { useBusinessData } from '../context/BusinessDataContext';
@@ -11,6 +11,9 @@ export default function CustomReceipt() {
   const { businessProfile } = useBusinessData();
   const [showPreview, setShowPreview] = useState(false);
   const [receiptNumber] = useState(generateReceiptNumber());
+  
+  // Ref to target the Receipt element in DOM for PDF generation
+  const receiptRef = useRef<HTMLDivElement>(null);
 
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
@@ -57,7 +60,12 @@ export default function CustomReceipt() {
     notes: notes || undefined,
   };
 
-  const handleDownload = () => generateReceiptPDF(receiptData);
+  // Fixed handler: Passes the HTML element reference to generateReceiptPDF
+  const handleDownload = () => {
+    if (receiptRef.current) {
+      generateReceiptPDF(receiptRef.current, `Receipt-${receiptNumber}`);
+    }
+  };
 
   const handleWhatsAppShare = () => {
     const itemsList = items.map((i) => `${i.description} - ${i.quantity} x ${formatNaira(i.unitPrice)}`).join('%0A');
@@ -93,7 +101,8 @@ export default function CustomReceipt() {
           <ArrowLeft size={16} /> Back to Edit
         </button>
 
-        <div className="mb-6">
+        {/* Attached receiptRef here */}
+        <div className="mb-6" ref={receiptRef}>
           <ReceiptDocument data={receiptData} />
         </div>
 

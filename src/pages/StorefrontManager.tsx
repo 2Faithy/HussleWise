@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import {
-  Store, Copy, Check, Share2, Package, Clock,
+  Store, Copy, Check, Share2, Package,
   CheckCircle2, XCircle, ExternalLink,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';

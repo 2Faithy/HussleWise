@@ -215,7 +215,7 @@ export default function Assistant() {
       {/* Promo builder inline form */}
       {promoMode && (
         <div className="bg-white rounded-2xl border border-brand-primary/10 p-4 mb-4 flex flex-wrap gap-3 items-end">
-          <div className="flex-1 min-w-[140px]">
+          <div className="flex-1 min-w-35">
             <label className="font-body text-xs font-bold text-brand-ink/60 mb-1 block">Item</label>
             <input
               type="text"

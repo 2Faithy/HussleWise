@@ -15,7 +15,6 @@ export default function OfflineSync() {
 
   const queuedEntries = offlineQueue.filter((e) => e.status === 'queued');
   const syncedEntries = offlineQueue.filter((e) => e.status === 'synced');
-  const errorEntries = offlineQueue.filter((e) => e.status === 'error');
 
   // Auto-sync whenever connectivity returns and there's a queue waiting
   useEffect(() => {
