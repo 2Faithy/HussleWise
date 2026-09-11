@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors */
+  --color-brand-bg: #ecba91;
+  --color-brand-accent: #ecbc94;
+  --color-brand-primary: #1c5b56;
+  --color-brand-ink: #0e1b1a;
+
+  /* Fonts */
+  --font-headline: "Montserrat", sans-serif;
+  --font-body: "Space Mono", monospace;
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-ink);
+  font-family: var(--font-body);
+}
+
+/* Color Palette variables */
+:root {
+  --bg-sand: #ecba91;
+  --primary-teal: #1c5b56;
+  --dark-ink: #0e1b1a;
+  --accent-peach: #ecbc94;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 6s infinite ease-in-out;
+}
