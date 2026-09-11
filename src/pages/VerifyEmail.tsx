@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { ArrowRight, Loader2 } from 'lucide-react';
+import { ArrowRight, Loader2, Mail } from 'lucide-react';
 import AuthLayout from '../layouts/AuthLayout';
 import { verifyEmail, resendVerification, ApiRequestError } from '../lib/api';
 
@@ -9,7 +9,7 @@ export default function VerifyEmail() {
   const location = useLocation();
   const emailFromState = (location.state as { email?: string })?.email || '';
 
-  const [email] = useState(emailFromState);
+  const [email, setEmail] = useState(emailFromState);
   const [code, setCode] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isResending, setIsResending] = useState(false);
@@ -18,6 +18,10 @@ export default function VerifyEmail() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!email) {
+      setErrorMsg('Please enter your email address.');
+      return;
+    }
     setErrorMsg('');
     setIsSubmitting(true);
 
@@ -35,12 +39,16 @@ export default function VerifyEmail() {
   };
 
   const handleResend = async () => {
+    if (!email) {
+      setErrorMsg('Please enter your email address above before resending.');
+      return;
+    }
     setErrorMsg('');
     setSuccessMsg('');
     setIsResending(true);
     try {
       await resendVerification(email);
-      setSuccessMsg('A new code has been sent to your email.');
+      setSuccessMsg(`A new code has been sent to ${email}.`);
     } catch (err) {
       if (err instanceof ApiRequestError) {
         setErrorMsg(err.message);
@@ -55,28 +63,10 @@ export default function VerifyEmail() {
   const inputClass =
     'w-full font-body text-2xl tracking-[0.4em] text-center px-4 py-3 rounded-lg border border-brand-primary/20 bg-white focus:outline-none focus:ring-2 focus:ring-brand-primary/40';
 
-  if (!email) {
-    return (
-      <AuthLayout title="Verify Your Email" subtitle="We couldn't find your email address.">
-        <p className="font-body text-sm text-brand-ink/60 text-center">
-          Please{' '}
-          <Link to="/signup" className="text-brand-primary font-bold hover:underline">
-            sign up
-          </Link>{' '}
-          again, or{' '}
-          <Link to="/login" className="text-brand-primary font-bold hover:underline">
-            log in
-          </Link>{' '}
-          if you already have an account.
-        </p>
-      </AuthLayout>
-    );
-  }
-
   return (
     <AuthLayout
       title="Verify Your Email"
-      subtitle={`We sent a 6-digit code to ${email}. Enter it below to activate your account.`}
+      subtitle={email ? `We sent a 6-digit code to ${email}.` : "Enter your email address and the 6-digit code to activate your account."}
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         {errorMsg && (
@@ -90,20 +80,40 @@ export default function VerifyEmail() {
           </div>
         )}
 
-        <input
-          type="text"
-          inputMode="numeric"
-          maxLength={6}
-          value={code}
-          onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
-          required
-          placeholder="000000"
-          className={inputClass}
-        />
+        {!emailFromState && (
+          <div>
+            <label className="block text-xs font-bold uppercase text-brand-ink/70 mb-1">Email Address</label>
+            <div className="relative">
+              <Mail className="absolute left-3 top-3.5 text-brand-ink/40" size={18} />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="your@email.com"
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-brand-primary/20 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/40"
+              />
+            </div>
+          </div>
+        )}
+
+        <div>
+          <label className="block text-xs font-bold uppercase text-brand-ink/70 mb-1 text-center">Verification Code</label>
+          <input
+            type="text"
+            inputMode="numeric"
+            maxLength={6}
+            value={code}
+            onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
+            required
+            placeholder="000000"
+            className={inputClass}
+          />
+        </div>
 
         <button
           type="submit"
-          disabled={isSubmitting || code.length !== 6}
+          disabled={isSubmitting || code.length !== 6 || !email}
           className="w-full flex items-center justify-center gap-2 bg-brand-primary text-brand-bg font-body font-bold px-6 py-3.5 rounded-lg hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
@@ -124,11 +134,18 @@ export default function VerifyEmail() {
         Didn't get a code?{' '}
         <button
           onClick={handleResend}
-          disabled={isResending}
+          disabled={isResending || !email}
           className="text-brand-primary font-bold hover:underline disabled:opacity-60"
         >
           {isResending ? 'Sending...' : 'Resend it'}
         </button>
+      </p>
+
+      <p className="font-body text-xs text-brand-ink/50 text-center mt-4">
+        Need to change email?{' '}
+        <Link to="/signup" className="text-brand-primary hover:underline">
+          Sign up again
+        </Link>
       </p>
     </AuthLayout>
   );
